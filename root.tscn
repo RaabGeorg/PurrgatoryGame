@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://r8y2k02wv80o"]
+
+[ext_resource type="Script" uid="uid://b7er7pahydty2" path="res://game.gd" id="1_qw60f"]
+[ext_resource type="PackedScene" uid="uid://cu6ehxgqrdf6i" path="res://main_Character/scenes/main_character_2d.tscn" id="3_28aoi"]
+
+[sub_resource type="Curve2D" id="Curve2D_vvh5c"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -513.6374, -400.6541, 0, 0, 0, 0, 251.727, -394.4683, 0, 0, 0, 0, 251.727, 318.96442, 0, 0, 0, 0, -515.0189, 310.71664, 0, 0, 0, 0, -513.6374, -400.6541)
+}
+point_count = 5
+
+[node name="root" type="Node2D"]
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource("1_qw60f")
+
+[node name="mainCharacter2D" parent="Game" instance=ExtResource("3_28aoi")]
+
+[node name="Path2D" type="Path2D" parent="Game"]
+position = Vector2(92.790375, 20.3089)
+scale = Vector2(0.7238382, 0.48497915)
+curve = SubResource("Curve2D_vvh5c")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Game/Path2D"]
+position = Vector2(-513.6374, -400.6541)
+rotation = 0.008082015
+
+[node name="Timer" type="Timer" parent="Game"]
+autostart = true
+
+[connection signal="timeout" from="Game/Timer" to="Game" method="_on_timer_timeout"]

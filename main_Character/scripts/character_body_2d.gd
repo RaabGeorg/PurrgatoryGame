@@ -5,6 +5,7 @@ func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * 100
 	move_and_slide()
+	
 	if direction == Vector2.ZERO:
 		sprite.play("idle")
 	else:
