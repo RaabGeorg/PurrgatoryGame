@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=4 uid="uid://uh2pecnowp81"]
 
 [ext_resource type="Texture2D" uid="uid://cbnqgxfpd65ww" path="res://assets/Island_24x24.png" id="1_r3r3k"]
-[ext_resource type="PackedScene" path="res://game.tscn" id="7_vyht1"]
+[ext_resource type="PackedScene" uid="uid://cnci1bl238no5" path="res://game.tscn" id="7_vyht1"]
 [ext_resource type="Script" uid="uid://b4x16tyyfihmb" path="res://addons/gaea/nodes/renderers/tilemap_renderer.gd" id="13_blcw0"]
 [ext_resource type="Script" uid="uid://d4feanreabm81" path="res://addons/gaea/nodes/generator.gd" id="14_50g4q"]
 [ext_resource type="Script" uid="uid://3qsmwhn2sk47" path="res://addons/gaea/resources/gaea_layer.gd" id="15_3dlgs"]

@@ -9,3 +9,10 @@ func _physics_process(delta: float) -> void:
 		sprite.play("idle")
 	else:
 		sprite.play("walking")
+		
+func _process(delta: float) -> void:
+	var mousePosition = get_global_mouse_position().x 
+	if mousePosition < global_position.x:
+		sprite.flip_h = false
+	else:
+		sprite.flip_h = true

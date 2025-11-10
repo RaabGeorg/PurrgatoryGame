@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4ilk845u7qj"
-path="res://.godot/imported/WalkingCat6.png-49994667a2a0cba8eba8cd2b9e4423f1.ctex"
+uid="uid://dcvg10bapya80"
+path="res://.godot/imported/BetterIdleCat.png-3bf20310fa78bd87baeb55dbaecd9839.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://main_Character/sprites/walking/WalkingCat6.png"
-dest_files=["res://.godot/imported/WalkingCat6.png-49994667a2a0cba8eba8cd2b9e4423f1.ctex"]
+source_file="res://main_Character/sprites/BetterIdleCat.png"
+dest_files=["res://.godot/imported/BetterIdleCat.png-3bf20310fa78bd87baeb55dbaecd9839.ctex"]
 
 [params]
 
