@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjlqxqnpiwluj"]
+
+[ext_resource type="Script" uid="uid://b7f6nei377vig" path="res://enemies/test/scripts/enemy_test_2d.gd" id="1_7fdr3"]
+[ext_resource type="Texture2D" uid="uid://djek0vhyui7h0" path="res://enemies/test/sprites/Imp Sprite Sheet.png" id="2_gxe7k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhnj2"]
+radius = 4.0
+height = 8.0
+
+[node name="enemy_test_2D" type="CharacterBody2D"]
+script = ExtResource("1_7fdr3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_hhnj2")
+
+[node name="ImpSpriteSheet" type="Sprite2D" parent="."]
+position = Vector2(-1, -1)
+texture = ExtResource("2_gxe7k")

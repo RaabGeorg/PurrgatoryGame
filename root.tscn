@@ -1,17 +1,7 @@
-[gd_scene load_steps=27 format=4 uid="uid://uh2pecnowp81"]
+[gd_scene load_steps=15 format=4 uid="uid://uh2pecnowp81"]
 
-[ext_resource type="Script" uid="uid://2gjgjnlekaq4" path="res://main_Character/scripts/character_body_2d.gd" id="1_gd4vy"]
 [ext_resource type="Texture2D" uid="uid://cbnqgxfpd65ww" path="res://assets/Island_24x24.png" id="1_r3r3k"]
-[ext_resource type="Texture2D" uid="uid://b0o34wv74wgcg" path="res://main_Character/sprites/idle/IdleCat2.png" id="2_qw60f"]
-[ext_resource type="Texture2D" uid="uid://dkh3avbsjxh88" path="res://main_Character/sprites/idle/IdleCat1.png" id="3_eji0w"]
-[ext_resource type="Texture2D" uid="uid://6qscdsf0ubfx" path="res://main_Character/sprites/walking/WalkingCat1.png" id="4_qwhpj"]
-[ext_resource type="Texture2D" uid="uid://c7kfy5givu6sn" path="res://main_Character/sprites/walking/WalkingCat2.png" id="5_qt76e"]
-[ext_resource type="Texture2D" uid="uid://nw5fij1jmsa8" path="res://main_Character/sprites/walking/WalkingCat3.png" id="6_sq7yr"]
-[ext_resource type="Texture2D" uid="uid://bk85kkglhc50g" path="res://main_Character/sprites/walking/WalkingCat4.png" id="7_r3r3k"]
-[ext_resource type="Texture2D" uid="uid://cy0vaoya6rof1" path="res://main_Character/sprites/walking/WalkingCat5.png" id="8_blcw0"]
-[ext_resource type="Texture2D" uid="uid://b4ilk845u7qj" path="res://main_Character/sprites/walking/WalkingCat6.png" id="9_50g4q"]
-[ext_resource type="Texture2D" uid="uid://cv0t2ejmjssru" path="res://main_Character/sprites/walking/WalkingCat7.png" id="10_3dlgs"]
-[ext_resource type="Texture2D" uid="uid://1upqsnhvp4ya" path="res://main_Character/sprites/walking/WalkingCat8.png" id="11_vte5o"]
+[ext_resource type="PackedScene" path="res://game.tscn" id="7_vyht1"]
 [ext_resource type="Script" uid="uid://b4x16tyyfihmb" path="res://addons/gaea/nodes/renderers/tilemap_renderer.gd" id="13_blcw0"]
 [ext_resource type="Script" uid="uid://d4feanreabm81" path="res://addons/gaea/nodes/generator.gd" id="14_50g4q"]
 [ext_resource type="Script" uid="uid://3qsmwhn2sk47" path="res://addons/gaea/resources/gaea_layer.gd" id="15_3dlgs"]
@@ -800,57 +790,6 @@ other = {
 &"save_version": 3
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_k735y"]
-radius = 5.0
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hswio"]
-animations = [{
-"frames": [],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_qw60f")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_eji0w")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_qwhpj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_qt76e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_sq7yr")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_r3r3k")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_blcw0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_50g4q")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_3dlgs")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_vte5o")
-}],
-"loop": true,
-"name": &"walking",
-"speed": 12.0
-}]
-
 [node name="root" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-15.0]
 
@@ -873,20 +812,4 @@ data = SubResource("Resource_8pgb7")
 seed = 1742084531
 metadata/_custom_type_script = "uid://d4feanreabm81"
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_gd4vy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_k735y")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_hswio")
-animation = &"idle"
-frame_progress = 0.41364035
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(0, 3)
-zoom = Vector2(1.5, 1.5)
-limit_enabled = false
-position_smoothing_speed = 6.0
+[node name="Game" parent="." instance=ExtResource("7_vyht1")]
