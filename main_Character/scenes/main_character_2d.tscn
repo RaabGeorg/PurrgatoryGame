@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3er2ebsbdmdi"]
+[gd_scene load_steps=13 format=3 uid="uid://d3er2ebsbdmdi"]
 
 [ext_resource type="Script" uid="uid://2gjgjnlekaq4" path="res://main_Character/scripts/character_body_2d.gd" id="1_ixptr"]
 [ext_resource type="Texture2D" uid="uid://dcvg10bapya80" path="res://main_Character/sprites/BetterIdleCat.png" id="2_r3xjj"]
+[ext_resource type="PackedScene" uid="uid://cvv6fycvmnqyc" path="res://small_weapons.tscn" id="3_b23ba"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b23ba"]
 atlas = ExtResource("2_r3xjj")
@@ -69,8 +70,6 @@ script = ExtResource("1_ixptr")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hswio")
 animation = &"idle"
-frame = 1
-frame_progress = 0.84628487
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, 4)
@@ -78,3 +77,13 @@ zoom = Vector2(3, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_k735y")
+
+[node name="small_weapons" parent="." instance=ExtResource("3_b23ba")]
+
+[node name="WeaponPivot" parent="small_weapons" index="0"]
+position = Vector2(0, 7.0000067)
+
+[node name="pistol" parent="small_weapons/WeaponPivot" index="0"]
+position = Vector2(47, -1)
+
+[editable path="small_weapons"]
