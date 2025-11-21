@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cvv6fycvmnqyc"]
 
-[ext_resource type="Script" uid="uid://s5q68d7bokj8" path="res://gun.gd" id="1_anpxn"]
-[ext_resource type="Texture2D" uid="uid://bg4aeahpk4tim" path="res://pistol.png" id="2_pm48c"]
+[ext_resource type="Script" uid="uid://s5q68d7bokj8" path="res://weapons/pistol/scripts/gun.gd" id="1_anpxn"]
+[ext_resource type="Texture2D" uid="uid://bg4aeahpk4tim" path="res://weapons/pistol/sprites/pistol.png" id="2_pm48c"]
 
 [node name="small_weapons" type="Node2D"]
 scale = Vector2(0.2, 0.2)

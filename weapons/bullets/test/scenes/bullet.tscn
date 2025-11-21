@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://r7qaleyg7wr8"]
 
-[ext_resource type="Script" uid="uid://b0s624gefy48d" path="res://node_2d.gd" id="1_v8qja"]
-[ext_resource type="Texture2D" uid="uid://c0vhn83y6ovxa" path="res://01.png" id="2_t4vbm"]
+[ext_resource type="Script" uid="uid://b0s624gefy48d" path="res://weapons/bullets/test/scripts/bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://c0vhn83y6ovxa" path="res://weapons/bullets/test/sprites/01.png" id="2_t4vbm"]
 
 [node name="bullet" type="Node2D"]
 top_level = true

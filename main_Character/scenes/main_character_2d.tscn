@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://2gjgjnlekaq4" path="res://main_Character/scripts/character_body_2d.gd" id="1_ixptr"]
 [ext_resource type="Texture2D" uid="uid://dcvg10bapya80" path="res://main_Character/sprites/BetterIdleCat.png" id="2_r3xjj"]
-[ext_resource type="PackedScene" uid="uid://cvv6fycvmnqyc" path="res://small_weapons.tscn" id="3_b23ba"]
+[ext_resource type="PackedScene" uid="uid://cvv6fycvmnqyc" path="res://weapons/pistol/scenes/small_weapons.tscn" id="3_b23ba"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b23ba"]
 atlas = ExtResource("2_r3xjj")
@@ -79,11 +79,5 @@ zoom = Vector2(3, 3)
 shape = SubResource("CircleShape2D_k735y")
 
 [node name="small_weapons" parent="." instance=ExtResource("3_b23ba")]
-
-[node name="WeaponPivot" parent="small_weapons" index="0"]
-position = Vector2(0, 7.0000067)
-
-[node name="pistol" parent="small_weapons/WeaponPivot" index="0"]
-position = Vector2(47, -1)
 
 [editable path="small_weapons"]
