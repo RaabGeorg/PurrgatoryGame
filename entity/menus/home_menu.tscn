@@ -1,0 +1,136 @@
+[gd_scene load_steps=9 format=3 uid="uid://jfdjfyqx0xn8"]
+
+[ext_resource type="Script" uid="uid://cp7t04ahwq2jf" path="res://entity/menus/scripts/home_menu.gd" id="1_3tgs7"]
+[ext_resource type="Texture2D" uid="uid://jk1eq2v5m1b1" path="res://entity/menus/assets/HeavenShopSketch.png" id="1_r2oky"]
+[ext_resource type="FontFile" uid="uid://crsogjk4346dd" path="res://assets/fonts/yoster.ttf" id="2_ypwus"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ypwus"]
+texture = ExtResource("1_r2oky")
+modulate_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jkb3v"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypwus"]
+bg_color = Color(0.43134022, 0.43134025, 0.43134025, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3tgs7"]
+bg_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypwus"]
+
+[node name="HomeMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3tgs7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ypwus")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.5
+offset_top = -57.0
+offset_right = 124.5
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_jkb3v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ypwus")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3tgs7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ypwus")
+text = "Start"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_jkb3v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ypwus")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3tgs7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ypwus")
+text = "Options"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_jkb3v")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ypwus")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3tgs7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ypwus")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.875
+offset_top = -188.0
+offset_right = 172.875
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8453231, 0.42024752, 0.17905027, 1)
+theme_override_colors/font_shadow_color = Color(0.034469567, 0.03361635, 0.033827864, 0)
+theme_override_fonts/font = ExtResource("2_ypwus")
+theme_override_font_sizes/font_size = 45
+text = "Purrgatory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_options_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_3_pressed"]

@@ -11,9 +11,8 @@ config_version=5
 [application]
 
 config/name="Purrgetory"
-run/main_scene="uid://uh2pecnowp81"
+run/main_scene="uid://jfdjfyqx0xn8"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
 
 [display]
 
@@ -25,6 +24,17 @@ window/stretch/scale=2.0
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gaea/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "red",
+"res://config/": "purple",
+"res://entity/": "green",
+"res://stages/": "pink",
+"res://utility/": "teal"
+}
 
 [input]
 
