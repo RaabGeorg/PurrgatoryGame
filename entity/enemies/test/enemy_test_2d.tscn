@@ -1,7 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjlqxqnpiwluj"]
+[gd_scene load_steps=16 format=3 uid="uid://bjlqxqnpiwluj"]
 
 [ext_resource type="Script" uid="uid://b7f6nei377vig" path="res://entity/enemies/test/enemy_test_2d.gd" id="1_7fdr3"]
 [ext_resource type="Texture2D" uid="uid://6d0y0u3waj6b" path="res://entity/enemies/test/sprites/Imp Sprite Sheet.png" id="2_gxe7k"]
+[ext_resource type="Script" uid="uid://cb7kjybgprksw" path="res://utility/health.gd" id="3_u5jw4"]
+[ext_resource type="Script" uid="uid://dg51vm8otm1sv" path="res://utility/hurtbox.gd" id="4_eoe2k"]
+[ext_resource type="Script" uid="uid://buw4a5aww2rk4" path="res://utility/hitbox.gd" id="5_eoe2k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhnj2"]
+radius = 5.0
+height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hhnj2"]
 atlas = ExtResource("2_gxe7k")
@@ -67,12 +74,14 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hhnj2"]
-radius = 4.0
-height = 8.0
-
 [node name="enemy_test_2D" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_7fdr3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_hhnj2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.9073486e-06, 0)
@@ -81,6 +90,31 @@ sprite_frames = SubResource("SpriteFrames_skufv")
 animation = &"running"
 frame_progress = 0.2705867
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Health" type="Node" parent="."]
+script = ExtResource("3_u5jw4")
+max_health = 1
+metadata/_custom_type_script = "uid://cb7kjybgprksw"
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 0
+script = ExtResource("4_eoe2k")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://dg51vm8otm1sv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+visible = false
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_hhnj2")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("5_eoe2k")
+metadata/_custom_type_script = "uid://buw4a5aww2rk4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+visible = false
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_hhnj2")
+
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]

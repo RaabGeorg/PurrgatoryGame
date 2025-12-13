@@ -1,9 +1,10 @@
 extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
 
+
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = direction * 80
+	velocity = direction * 65
 	move_and_slide()
 	if direction == Vector2.ZERO:
 		sprite.play("idle")
@@ -16,3 +17,9 @@ func _process(delta: float) -> void:
 		sprite.flip_h = false
 	else:
 		sprite.flip_h = true
+		
+func _on_health_health_depleted() -> void:
+	set_physics_process(false)
+	print("death")
+	await get_tree().create_timer(1.0).timeout
+	get_tree().change_scene_to_file("res://entity/menus/home_menu.tscn")

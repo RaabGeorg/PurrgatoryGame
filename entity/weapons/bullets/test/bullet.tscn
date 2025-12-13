@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://r7qaleyg7wr8"]
+[gd_scene load_steps=5 format=3 uid="uid://r7qaleyg7wr8"]
 
 [ext_resource type="Script" uid="uid://b0s624gefy48d" path="res://entity/weapons/bullets/test/bullet.gd" id="1_v8qja"]
 [ext_resource type="Texture2D" uid="uid://c0vhn83y6ovxa" path="res://entity/weapons/bullets/test/sprites/01.png" id="2_t4vbm"]
+[ext_resource type="Script" uid="uid://buw4a5aww2rk4" path="res://utility/hitbox.gd" id="3_3kep1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3kep1"]
+radius = 4.0
+height = 18.0
 
 [node name="bullet" type="Node2D"]
 top_level = true
@@ -10,3 +15,14 @@ script = ExtResource("1_v8qja")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_t4vbm")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_mask = 2
+script = ExtResource("3_3kep1")
+metadata/_custom_type_script = "uid://buw4a5aww2rk4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3kep1")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
