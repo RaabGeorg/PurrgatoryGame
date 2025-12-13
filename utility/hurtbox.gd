@@ -17,10 +17,9 @@ func _on_area_entered(area: Area2D) -> void:
 		var hitbox := area as HitBox
 		if is_in_group("player_hurtbox"):
 			if health.get_immortality() == false:
-				print("hallo")
 				health.health -= hitbox.damage
 				received_damage.emit(hitbox.damage)
-				health.set_temporary_immortality(4)
+				health.set_temporary_immortality(1)
 		else:
 			health.health -= hitbox.damage
 			received_damage.emit(hitbox.damage)
