@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=4 uid="uid://uh2pecnowp81"]
+[gd_scene load_steps=13 format=4 uid="uid://uh2pecnowp81"]
 
+[ext_resource type="PackedScene" uid="uid://cygmnejbrtw65" path="res://entity/menus/pause_menu.tscn" id="1_vyht1"]
 [ext_resource type="PackedScene" uid="uid://bj0n5uknfpeg7" path="res://utility/map_generator.tscn" id="2_jnlp7"]
 [ext_resource type="Script" uid="uid://ifnbyjmpjfpt" path="res://addons/gaea/nodes/chunk_loaders/chunk_loader_2d.gd" id="6_l8v81"]
 [ext_resource type="PackedScene" uid="uid://cnci1bl238no5" path="res://stages/game.tscn" id="7_vyht1"]
@@ -209,6 +210,10 @@ other = {
 metadata/_edit_horizontal_guides_ = [-15.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("1_vyht1")]
+process_mode = 0
 
 [node name="MapGenerator" parent="." instance=ExtResource("2_jnlp7")]
 
@@ -235,3 +240,4 @@ metadata/_custom_type_script = "uid://ifnbyjmpjfpt"
 [editable path="MapGenerator"]
 [editable path="Game"]
 [editable path="Game/mainCharacter2D"]
+[editable path="Game/mainCharacter2D/small_weapons"]

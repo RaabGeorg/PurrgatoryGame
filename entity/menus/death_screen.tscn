@@ -1,0 +1,135 @@
+[gd_scene load_steps=9 format=3 uid="uid://uj821tnijh18"]
+
+[ext_resource type="Script" uid="uid://cgwqilpyg4oy8" path="res://entity/menus/scripts/death_screen.gd" id="1_dxbv3"]
+[ext_resource type="FontFile" uid="uid://crsogjk4346dd" path="res://assets/fonts/yoster.ttf" id="1_tfnal"]
+[ext_resource type="Texture2D" uid="uid://jk1eq2v5m1b1" path="res://entity/menus/assets/HeavenShopSketch.png" id="2_dm6od"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5bc0h"]
+texture = ExtResource("2_dm6od")
+modulate_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pyw0e"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5p335"]
+bg_color = Color(0.43134022, 0.43134025, 0.43134025, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p4ls"]
+bg_color = Color(0.66656864, 0.6665687, 0.66656864, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+shadow_size = 5
+shadow_offset = Vector2(0, 3)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_477y0"]
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dxbv3")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5bc0h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.5
+offset_top = -57.0
+offset_right = 124.5
+offset_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="Restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_pyw0e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5p335")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8p4ls")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_477y0")
+text = "Restart"
+
+[node name="Options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_pyw0e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5p335")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8p4ls")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_477y0")
+text = "Options"
+
+[node name="Quit to menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_pyw0e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5p335")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8p4ls")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_477y0")
+text = "Quit to menu"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.875
+offset_top = -188.0
+offset_right = 172.875
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8453231, 0.42024752, 0.17905027, 1)
+theme_override_colors/font_shadow_color = Color(0.034469567, 0.03361635, 0.033827864, 0)
+theme_override_fonts/font = ExtResource("1_tfnal")
+theme_override_font_sizes/font_size = 45
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit to menu" to="." method="_on_quit_to_menu_pressed"]
