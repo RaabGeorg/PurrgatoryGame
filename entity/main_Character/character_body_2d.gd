@@ -22,4 +22,4 @@ func _on_health_health_depleted() -> void:
 	set_physics_process(false)
 	print("death")
 	await get_tree().create_timer(1.0).timeout
-	get_tree().change_scene_to_file("res://entity/menus/home_menu.tscn")
+	get_tree().change_scene_to_file("res://entity/menus/death_screen.tscn")
