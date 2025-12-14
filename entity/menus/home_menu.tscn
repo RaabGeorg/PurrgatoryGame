@@ -71,7 +71,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 7
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -84,7 +84,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3tgs7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ypwus")
 text = "Start"
 
-[node name="Button2" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -97,7 +97,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_3tgs7")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ypwus")
 text = "Options"
 
-[node name="Button3" type="Button" parent="VBoxContainer"]
+[node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -131,6 +131,9 @@ text = "Purrgatory"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_options_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_3_pressed"]
+[connection signal="mouse_exited" from="VBoxContainer/Start" to="." method="_on_start_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="mouse_exited" from="VBoxContainer/Options" to="." method="_on_options_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_2_pressed"]
+[connection signal="mouse_exited" from="VBoxContainer/Exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_3_pressed"]

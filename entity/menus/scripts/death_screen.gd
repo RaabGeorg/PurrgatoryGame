@@ -12,3 +12,15 @@ func _on_restart_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	print("options was pressed")
+
+
+func _on_restart_mouse_exited() -> void:
+	$VBoxContainer/Restart.release_focus()
+
+
+func _on_options_mouse_exited() -> void:
+	$VBoxContainer/Options.release_focus()
+
+
+func _on_quit_to_menu_mouse_exited() -> void:
+	$VBoxContainer/Quit_to_menu.release_focus()

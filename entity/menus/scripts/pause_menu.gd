@@ -37,8 +37,16 @@ func _on_options_pressed() -> void:
 
 func _on_resume_pressed() -> void:
 	resume()
-	
-	
-	
-	
-	
+
+
+
+func _on_resume_mouse_exited() -> void:
+	$VBoxContainer/Resume.release_focus()
+
+
+func _on_options_mouse_exited() -> void:
+	$VBoxContainer/Options.release_focus()
+
+
+func _on_quit_mouse_exited() -> void:
+	$VBoxContainer/Quit.release_focus()
