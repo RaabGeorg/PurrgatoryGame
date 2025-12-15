@@ -14,6 +14,8 @@ position = Vector2(-4, 0)
 texture = ExtResource("1_be0hx")
 
 [node name="mainCharacter2D" parent="." instance=ExtResource("2_iw0nx")]
+collision_layer = 8
+collision_mask = 8
 
 [editable path="mainCharacter2D"]
 [editable path="mainCharacter2D/small_weapons"]
