@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var sprite = $AnimatedSprite2D
-
+@export var Gold: int = 0 
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -18,8 +18,13 @@ func _process(delta: float) -> void:
 	else:
 		sprite.flip_h = true
 		
+
 func _on_health_health_depleted() -> void:
 	set_physics_process(false)
 	print("death")
 	await get_tree().create_timer(1.0).timeout
 	get_tree().change_scene_to_file("res://entity/menus/death_screen.tscn")
+
+func dropped_gold(gold : int) -> void:
+	Gold+=gold
+	print(Gold)

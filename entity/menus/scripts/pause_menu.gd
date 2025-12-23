@@ -1,14 +1,12 @@
 extends Control
-
+var is_open = false
 func _ready() -> void:
 	hide()
 	get_tree().paused = false
 	
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("openPause"):
-		print("--- PAUSE WAS PRESSED AMK ---")
-		
-		if get_tree().paused:
+	if event.is_action_pressed("openPause") and not get_tree().current_scene.name=="HomeMenu":
+		if get_tree().paused and get_tree().current_scene.get_child(0).get_children().size() == 1 or visible == true:
 			resume()
 		else:
 			pause()
@@ -17,13 +15,15 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 func resume() -> void:
 	print("resume was pressed")
-	get_tree().paused = false
+	if get_tree().current_scene.get_child(0).get_children().size() == 1:
+		get_tree().paused = false
 	hide()
 
 func pause() -> void:
 	print("yippie pause was pressed")
 	show()
-	get_tree().paused = true
+	if get_tree().current_scene.get_child(0).get_children().size() == 1:
+		get_tree().paused = true
 	
 # -------------- BUTTON COPNNECTORS -----------------------
 func _on_quit_pressed() -> void:
@@ -31,7 +31,7 @@ func _on_quit_pressed() -> void:
 		get_tree().paused = false
 	
 	get_tree().change_scene_to_file("res://entity/menus/home_menu.tscn")
-	
+	hide()
 func _on_options_pressed() -> void:
 	print("option was pressed")
 
