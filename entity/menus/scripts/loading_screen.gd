@@ -29,14 +29,16 @@ func _process(_delta):
 
 	var status = ResourceLoader.load_threaded_get_status(target_scene_path, progress)
 	
+	#letzten prozente reinflanken
+	var final_tween = create_tween()
+	final_tween.tween_property(progress_bar, "value", 100.0, 0.3)
+	
 	if status == ResourceLoader.THREAD_LOAD_LOADED and min_time_reached:
 		has_finished_loading = true
 		status_label.text = "Press Any Key to Continue"
 		
-		#letzten prozente reinflanken
-		var final_tween = create_tween()
-		final_tween.tween_property(progress_bar, "value", 100.0, 0.3)
-
+		
+		
 func _input(event):
 	if has_finished_loading and event.is_pressed():
 		_switch_to_game()
