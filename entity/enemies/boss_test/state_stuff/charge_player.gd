@@ -7,15 +7,14 @@ class_name ChargePlayer
 var player: CharacterBody2D
 
 var move_direction : Vector2
-
 func charge():
 	move_direction = (player.global_position - boss.global_position).normalized()
 	%Indicator.look_at(player.global_position)
 	%Indicator.show()
-	await get_tree().create_timer(0.55).timeout
+	await get_tree().create_timer(0.4, false).timeout
 	%Indicator.hide()
 	boss.velocity = move_direction * move_speed
-	await get_tree().create_timer(0.75).timeout
+	await get_tree().create_timer(0.75, false).timeout
 	
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")

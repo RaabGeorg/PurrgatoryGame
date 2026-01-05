@@ -21,6 +21,7 @@ func _on_area_entered(area: Area2D) -> void:
 				received_damage.emit(hitbox.damage)
 				health.set_temporary_immortality(0.5)
 		else:
+			print("DAMAGA")
 			health.health -= hitbox.damage
 			received_damage.emit(hitbox.damage)
 	if area.get_parent().has_method("apply_knockback"):

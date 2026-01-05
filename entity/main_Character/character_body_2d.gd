@@ -8,8 +8,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if direction == Vector2.ZERO:
 		sprite.play("idle")
-	#else:
-		#sprite.play("walking")
+	else:
+		sprite.play("running")
 		
 func _process(delta: float) -> void:
 	var mousePosition = get_global_mouse_position().x 
