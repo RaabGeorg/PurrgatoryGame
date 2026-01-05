@@ -8,12 +8,7 @@ signal request_open_shop
 
 func _ready() -> void:
 	$mainCharacter2D/Camera2D.enabled = true
-	spawn_mob()
-	spawn_mob()
-	spawn_mob()
-	spawn_mob()
-	spawn_mob()
-	spawn_mob()
+	boss_spawn_test()
 
 func spawn_mob():
 	path_follow.progress_ratio = randf()
@@ -21,6 +16,10 @@ func spawn_mob():
 	new_mob.global_position = path_follow.global_position
 	add_child(new_mob)
 
+func boss_spawn_test():
+	var new_mob = preload("res://entity/enemies/boss_test/boss_Test.tscn").instantiate()
+	new_mob.global_position = get_tree().get_first_node_in_group("Player").global_position
+	add_child(new_mob)
 
 func _on_timer_timeout():
 	spawn_mob() 

@@ -44,7 +44,6 @@ func get_immortality() -> bool:
 	return immortality
 
 
-
 func set_temporary_immortality(time: float) -> void:
 	immortality = true
 	var t: SceneTreeTimer = get_tree().create_timer(time, false) 
@@ -62,7 +61,7 @@ func set_health(value: int):
 		health = value
 		health_changed.emit(difference)
 		
-		if health == 0:
+		if health <= 0:
 			health_depleted.emit()
 
 

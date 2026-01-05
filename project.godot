@@ -18,10 +18,6 @@ config/features=PackedStringArray("4.5", "GL Compatibility")
 
 GlobalCanvasLayer="*res://entity/menus/autoloadPauseMenu.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/viewport_width=1600
@@ -43,6 +39,10 @@ folder_colors={
 "res://stages/": "pink",
 "res://utility/": "teal"
 }
+
+[global_group]
+
+Player=""
 
 [input]
 
