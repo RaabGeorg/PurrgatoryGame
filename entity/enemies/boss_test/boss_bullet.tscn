@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvmfqt4lxv7kr"]
+
+[ext_resource type="Script" uid="uid://bxwgu10bneunn" path="res://entity/enemies/boss_test/boss_bullet.gd" id="1_f5fuf"]
+[ext_resource type="Texture2D" uid="uid://bnshr633d0d8g" path="res://entity/enemies/boss_test/sprites/BossBullet.png" id="2_83lc1"]
+[ext_resource type="Script" uid="uid://buw4a5aww2rk4" path="res://utility/hitbox.gd" id="3_7aeop"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aoour"]
+radius = 3.0
+
+[node name="BossBullet" type="Node2D"]
+script = ExtResource("1_f5fuf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_83lc1")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("3_7aeop")
+metadata/_custom_type_script = "uid://buw4a5aww2rk4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+scale = Vector2(0.9, 0.9)
+shape = SubResource("CircleShape2D_aoour")

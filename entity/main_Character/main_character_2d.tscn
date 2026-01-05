@@ -1,14 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3er2ebsbdmdi"]
+[gd_scene load_steps=23 format=3 uid="uid://d3er2ebsbdmdi"]
 
 [ext_resource type="Script" uid="uid://2gjgjnlekaq4" path="res://entity/main_Character/character_body_2d.gd" id="1_amrj0"]
 [ext_resource type="Texture2D" uid="uid://dcvg10bapya80" path="res://entity/main_Character/sprites/BetterIdleCat.png" id="2_8d3j6"]
+[ext_resource type="Texture2D" uid="uid://btk527ti5tiuk" path="res://entity/main_Character/sprites/BetterRunningCat.png" id="3_6xro2"]
 [ext_resource type="PackedScene" uid="uid://cvv6fycvmnqyc" path="res://entity/weapons/pistol/small_weapons.tscn" id="3_nw810"]
 [ext_resource type="Script" uid="uid://cb7kjybgprksw" path="res://utility/health.gd" id="4_8d3j6"]
 [ext_resource type="Script" uid="uid://dg51vm8otm1sv" path="res://utility/hurtbox.gd" id="5_nw810"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nw810"]
-radius = 5.0
-height = 10.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xro2"]
+radius = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b23ba"]
 atlas = ExtResource("2_8d3j6")
@@ -38,6 +38,30 @@ region = Rect2(160, 0, 32, 32)
 atlas = ExtResource("2_8d3j6")
 region = Rect2(192, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t37xg"]
+atlas = ExtResource("3_6xro2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7pg6l"]
+atlas = ExtResource("3_6xro2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igl00"]
+atlas = ExtResource("3_6xro2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ws8ik"]
+atlas = ExtResource("3_6xro2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6f52"]
+atlas = ExtResource("3_6xro2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8qee"]
+atlas = ExtResource("3_6xro2")
+region = Rect2(160, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_hswio"]
 animations = [{
 "frames": [{
@@ -65,28 +89,50 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t37xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7pg6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igl00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ws8ik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6f52")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8qee")
+}],
+"loop": true,
+"name": &"running",
+"speed": 8.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xro2"]
-radius = 6.0
-height = 16.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_nw810"]
+radius = 3.0
 
 [node name="mainCharacter2D" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
 script = ExtResource("1_amrj0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_nw810")
+shape = SubResource("CircleShape2D_6xro2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_hswio")
-animation = &"idle"
+animation = &"running"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 4)
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="small_weapons" parent="." instance=ExtResource("3_nw810")]
 
@@ -101,13 +147,13 @@ metadata/_custom_type_script = "uid://cb7kjybgprksw"
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health") groups=["player_hurtbox"]]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("5_nw810")
 health = NodePath("../Health")
 metadata/_custom_type_script = "uid://dg51vm8otm1sv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-shape = SubResource("CapsuleShape2D_6xro2")
+shape = SubResource("CircleShape2D_nw810")
 
 [connection signal="timeout" from="small_weapons/ShootCooldown" to="small_weapons" method="_on_shoot_cooldown_timeout"]
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]

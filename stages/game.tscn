@@ -227,6 +227,7 @@ position = Vector2(-513.6374, -400.6541)
 rotation = 0.008082015
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
 autostart = true
 
 [node name="MapGenerator" parent="." instance=ExtResource("3_5kqkd")]
