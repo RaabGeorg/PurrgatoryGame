@@ -21,9 +21,17 @@ func boss_spawn_test():
 	new_mob.global_position = path_follow.global_position
 
 	add_child(new_mob)
+	
+	
+func spawn_mob_ranged():
+	path_follow.progress_ratio = randf()
+	var new_mob = preload("res://entity/enemies/test/enemy_test_2d_ranged.tscn").instantiate()
+	new_mob.global_position = path_follow.global_position
+	add_child(new_mob)
 
 func _on_timer_timeout():
 	spawn_mob()
+	spawn_mob_ranged()
 	x += 1
 	if x % 20 == 0:
 		boss_spawn_test()
