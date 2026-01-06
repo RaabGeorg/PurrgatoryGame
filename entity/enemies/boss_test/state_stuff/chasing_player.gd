@@ -3,7 +3,7 @@ class_name ChasingPlayer
 
 @export var boss: CharacterBody2D
 @export var min_speed := 59.0
-@export var max_speed := 115.0
+@export var max_speed := 130.0
 @export var max_distance := 400.0
 
 var player: CharacterBody2D

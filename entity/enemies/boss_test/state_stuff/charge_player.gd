@@ -3,8 +3,8 @@ class_name ChargePlayer
 
 @export var boss: CharacterBody2D
 @export var min_speed := 130.0
-@export var max_speed := 450.0
-@export var max_distance := 550.0
+@export var max_speed := 425.0
+@export var max_distance := 500.0
 
 var player: CharacterBody2D
 
