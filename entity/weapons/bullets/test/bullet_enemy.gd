@@ -1,7 +1,11 @@
 extends Node2D
 
-const SPEED: int = 300
+const SPEED: int = 150
 var velocity: Vector2 = Vector2.ZERO
+
+func _ready() -> void:
+	await get_tree().create_timer(15, false).timeout
+	queue_free()
 
 func setup(dir: Vector2) -> void:
 	# This receives the direction from the enemy
