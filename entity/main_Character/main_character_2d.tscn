@@ -115,7 +115,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nw810"]
-radius = 3.0
+radius = 4.0
 
 [node name="mainCharacter2D" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
@@ -153,6 +153,7 @@ health = NodePath("../Health")
 metadata/_custom_type_script = "uid://dg51vm8otm1sv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_nw810")
 
 [connection signal="timeout" from="small_weapons/ShootCooldown" to="small_weapons" method="_on_shoot_cooldown_timeout"]

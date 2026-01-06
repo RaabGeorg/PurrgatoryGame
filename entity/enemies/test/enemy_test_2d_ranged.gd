@@ -9,7 +9,7 @@ signal enemy_died
 
 @export var bullet_scene: PackedScene
 @export var speed: float = 40.0              
-@export var stop_distance: float = 70.0
+@export var stop_distance: float = 125.0
 @export var knockback_force: float = 50.0    
 @export var knockback_time: float = 0.3    
 
@@ -19,7 +19,7 @@ var _knockback_timer: float = 0.0
 func _ready() -> void:
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	shoot_timer.start()
-	%AnimatedSprite2D.modulate = Color(0.557, 0.572, 0.988)
+	%AnimatedSprite2D.modulate = Color(0.0, 1.0, 1.0, 1.0)
 
 func _physics_process(delta: float) -> void:
 	if _is_knockback:
