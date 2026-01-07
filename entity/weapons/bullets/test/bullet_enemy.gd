@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED: int = 150
+const SPEED: int = 100
 var velocity: Vector2 = Vector2.ZERO
 
 func _ready() -> void:

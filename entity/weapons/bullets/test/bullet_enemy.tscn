@@ -12,7 +12,7 @@ top_level = true
 script = ExtResource("1_a5bnr")
 
 [node name="HitBox" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 4
 collision_mask = 8
 script = ExtResource("3_xf5xn")
 metadata/_custom_type_script = "uid://buw4a5aww2rk4"

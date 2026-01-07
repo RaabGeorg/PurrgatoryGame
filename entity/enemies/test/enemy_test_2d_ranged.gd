@@ -9,7 +9,7 @@ signal enemy_died
 
 @export var bullet_scene: PackedScene
 @export var speed: float = 40.0              
-@export var stop_distance: float = 70.0
+@export var stop_distance: float = 100.0
 @export var knockback_force: float = 50.0    
 @export var knockback_time: float = 0.3    
 
