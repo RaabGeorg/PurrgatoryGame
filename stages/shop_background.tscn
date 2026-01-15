@@ -1,11 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://btg67ypglodnk"]
+[gd_scene load_steps=15 format=3 uid="uid://btg67ypglodnk"]
 
 [ext_resource type="Texture2D" uid="uid://bhdkcv3bfo84f" path="res://assets/Scene Overview.png" id="1_be0hx"]
 [ext_resource type="Script" uid="uid://bm0b8hftowp1e" path="res://stages/shop_background.gd" id="1_iw0nx"]
 [ext_resource type="PackedScene" uid="uid://d3er2ebsbdmdi" path="res://entity/main_Character/main_character_2d.tscn" id="2_iw0nx"]
+[ext_resource type="PackedScene" uid="uid://c3upggn1bdymb" path="res://utility/BulletUpgrades/upgrade.tscn" id="4_jc75s"]
+[ext_resource type="Script" uid="uid://xxucxfpw50eg" path="res://entity/weapons/bullets/Strategy/speed_bullet_strategy.gd" id="5_tdyy5"]
+[ext_resource type="Texture2D" uid="uid://ccn6pc16xa5hu" path="res://assets/Arrow.png" id="6_0uiji"]
+[ext_resource type="Resource" uid="uid://ds5d43elamiaq" path="res://utility/BulletUpgrades/speed.tres" id="7_0uiji"]
+[ext_resource type="Script" uid="uid://co03w70hsqh1e" path="res://entity/weapons/bullets/Strategy/pierce_bullet_strategy.gd" id="8_qfbv3"]
+[ext_resource type="Script" uid="uid://c7yf10ldiwc24" path="res://entity/weapons/bullets/Strategy/cooldown_bullet_strategy.gd" id="9_75mcs"]
+[ext_resource type="Resource" uid="uid://dsc8eroaeb3jp" path="res://utility/BulletUpgrades/cooldown.tres" id="10_tdyy5"]
+
+[sub_resource type="Resource" id="Resource_d33ny"]
+script = ExtResource("5_tdyy5")
+metadata/_custom_type_script = "uid://xxucxfpw50eg"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u5gcx"]
+
+[sub_resource type="Resource" id="Resource_75mcs"]
+script = ExtResource("8_qfbv3")
+metadata/_custom_type_script = "uid://co03w70hsqh1e"
+
+[sub_resource type="Resource" id="Resource_tdyy5"]
+script = ExtResource("9_75mcs")
+metadata/_custom_type_script = "uid://c7yf10ldiwc24"
 
 [node name="ShopBackground" type="Node2D"]
 process_mode = 3
+position = Vector2(6, 4)
 script = ExtResource("1_iw0nx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -17,5 +39,54 @@ texture = ExtResource("1_be0hx")
 collision_layer = 8
 collision_mask = 8
 
+[node name="Upgrade" parent="." instance=ExtResource("4_jc75s")]
+position = Vector2(-34, 69)
+bullet_strategy = SubResource("Resource_d33ny")
+
+[node name="CollisionShape2D" parent="Upgrade" index="0"]
+position = Vector2(28, 30)
+shape = SubResource("CircleShape2D_u5gcx")
+
+[node name="UpgradeLabel" parent="Upgrade" index="1"]
+offset_left = 12.0
+offset_top = 9.0
+offset_right = 81.0
+offset_bottom = 41.0
+theme_override_constants/line_spacing = 3
+
+[node name="Sprite2D" parent="Upgrade" index="2"]
+position = Vector2(29, 31)
+
+[node name="Upgrade2" parent="." instance=ExtResource("4_jc75s")]
+position = Vector2(75, 97)
+bullet_strategy = ExtResource("7_0uiji")
+
+[node name="UpgradeLabel" parent="Upgrade2" index="1"]
+offset_left = -16.0
+offset_right = 24.0
+
+[node name="Upgrade3" parent="." instance=ExtResource("4_jc75s")]
+position = Vector2(34, 97)
+bullet_strategy = SubResource("Resource_75mcs")
+
+[node name="Upgrade4" parent="." instance=ExtResource("4_jc75s")]
+position = Vector2(-53, 99)
+bullet_strategy = ExtResource("10_tdyy5")
+
+[node name="Sprite2D" parent="Upgrade4" index="2"]
+position = Vector2(0, 1)
+
+[node name="Upgrade5" parent="." instance=ExtResource("4_jc75s")]
+position = Vector2(-93, 99)
+bullet_strategy = SubResource("Resource_tdyy5")
+
+[node name="Sprite2D" parent="Upgrade5" index="2"]
+position = Vector2(0, 1)
+
 [editable path="mainCharacter2D"]
 [editable path="mainCharacter2D/small_weapons"]
+[editable path="Upgrade"]
+[editable path="Upgrade2"]
+[editable path="Upgrade3"]
+[editable path="Upgrade4"]
+[editable path="Upgrade5"]

@@ -10,6 +10,7 @@ var wait_time = 0.75
 signal request_open_shop
 
 func _ready() -> void:
+	boss_spawn_test()
 	$mainCharacter2D/Camera2D.enabled = true
 	
 	
@@ -33,7 +34,7 @@ func spawn_mob_ranged():
 	add_child(new_mob)
 
 func _on_timer_timeout():
-	for i in range(spawn_count):
+	'''for i in range(spawn_count):
 		spawn_mob()
 		if i % 2 == 0:
 			spawn_mob_ranged()
@@ -42,9 +43,7 @@ func _on_timer_timeout():
 	if x % 10 == 0:
 		spawn_count += 1
 		
-	if x % 20 == 0:
-		boss_spawn_test()	
-	
+	if x % 20 == 0:'''
 	
 	
 func _process(delta: float) -> void:

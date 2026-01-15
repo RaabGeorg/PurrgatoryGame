@@ -116,7 +116,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nw810"]
-radius = 3.0
+radius = 4.0
 
 [node name="mainCharacter2D" type="CharacterBody2D" groups=["Player"]]
 collision_mask = 2
@@ -133,14 +133,9 @@ animation = &"running"
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 4)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.75, 1.75)
 
 [node name="small_weapons" parent="." instance=ExtResource("3_nw810")]
-
-[node name="ShootCooldown" type="Timer" parent="small_weapons"]
-unique_name_in_owner = true
-wait_time = 0.5
-one_shot = true
 
 [node name="Health" type="Node" parent="."]
 unique_name_in_owner = true
@@ -155,46 +150,9 @@ health = NodePath("../Health")
 metadata/_custom_type_script = "uid://dg51vm8otm1sv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_nw810")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="DisplayGoldValue" type="Label" parent="CanvasLayer"]
-unique_name_in_owner = true
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -32.0
-offset_right = -11.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("7_t37xg")
-
-[node name="DisplayHealthValue" type="Label" parent="CanvasLayer"]
-unique_name_in_owner = true
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -43.0
-offset_top = 23.0
-offset_right = -11.0
-offset_bottom = 46.0
-grow_horizontal = 0
-theme_override_fonts/font = ExtResource("7_t37xg")
-
-[node name="Timer" type="Label" parent="CanvasLayer"]
-unique_name_in_owner = true
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -0.5
-offset_right = 0.5
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "hier steht bald ein timer  :)"
-
-[connection signal="timeout" from="small_weapons/ShootCooldown" to="small_weapons" method="_on_shoot_cooldown_timeout"]
-[connection signal="health_changed" from="Health" to="." method="_on_health_health_changed"]
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="max_health_changed" from="Health" to="." method="_on_health_max_health_changed"]
 

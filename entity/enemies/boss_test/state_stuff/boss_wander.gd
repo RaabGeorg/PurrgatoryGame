@@ -2,7 +2,7 @@ extends State
 class_name BossWander
 
 @export var boss: CharacterBody2D
-@export var move_speed := 20.0
+@export var move_speed := 40.0
 
 var player: CharacterBody2D
 
@@ -15,7 +15,7 @@ var weights = [2, 3, 5]
 
 func randomize_wander():
 	move_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
-	wander_time = randf_range(1, 3)
+	wander_time = randf_range(1, 2)
 	
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")

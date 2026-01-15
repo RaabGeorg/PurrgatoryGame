@@ -1,13 +1,14 @@
 extends Node2D
+class_name small_weapons
 
+@onready var shoot_timer: Timer = %ShootCooldown
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 const bullet = preload("res://entity/weapons/bullets/test/bullet.tscn")
 var can_shoot := true
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	rotation_degrees = wrap(rotation_degrees,0,360)
@@ -19,13 +20,18 @@ func _process(delta: float) -> void:
 		z_index = -1
 	else: 
 		z_index = 1
-	if Input.is_action_just_pressed("shoot") and can_shoot:
+	if Input.is_action_pressed("shoot") and can_shoot:
 		can_shoot = false
 		var bullet_instance = bullet.instantiate()
 		bullet_instance.global_position = %ShootingPoint.global_position
 		bullet_instance.global_rotation = (get_global_mouse_position()-global_position).normalized().angle()
 		%ShootingPoint.add_child(bullet_instance)
 		%ShootCooldown.start()
+		for strategy in get_parent().upgrades:
+			print(strategy)
+			strategy.apply_upgrade(bullet_instance,self)
+			print(bullet_instance.SPEED)
+		
 
 
 func _on_shoot_cooldown_timeout() -> void:

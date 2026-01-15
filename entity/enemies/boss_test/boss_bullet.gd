@@ -10,7 +10,7 @@ func _ready() -> void:
 	await get_tree().create_timer(15, false).timeout
 	queue_free()
 
-const SPEED: int = 45
+const SPEED: int = 60
 
 func _process(delta: float) -> void:
 	var direction = Vector2.RIGHT.rotated(rotation)

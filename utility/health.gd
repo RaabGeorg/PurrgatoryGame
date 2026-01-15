@@ -34,6 +34,8 @@ func get_max_health() -> int:
 
 func set_immortality(state: bool) -> void:
 	immortality = state
+	if not is_instance_valid(%AnimatedSprite2D):
+		return
 	if state:
 		%AnimatedSprite2D.modulate = Color(1, 1, 1, 0.5) # halb transparent
 	else:
