@@ -39,6 +39,15 @@ texture = ExtResource("1_be0hx")
 collision_layer = 8
 collision_mask = 8
 
+[node name="CanvasLayer" parent="mainCharacter2D" index="6"]
+visible = false
+
+[node name="DisplayGoldValue" parent="mainCharacter2D/CanvasLayer" index="0"]
+visible = false
+
+[node name="DisplayHealthValue" parent="mainCharacter2D/CanvasLayer" index="1"]
+visible = false
+
 [node name="Upgrade" parent="." instance=ExtResource("4_jc75s")]
 position = Vector2(-34, 69)
 bullet_strategy = SubResource("Resource_d33ny")
@@ -59,6 +68,8 @@ position = Vector2(29, 31)
 
 [node name="Upgrade2" parent="." instance=ExtResource("4_jc75s")]
 position = Vector2(75, 97)
+collision_layer = 264
+collision_mask = 255
 bullet_strategy = ExtResource("7_0uiji")
 
 [node name="UpgradeLabel" parent="Upgrade2" index="1"]

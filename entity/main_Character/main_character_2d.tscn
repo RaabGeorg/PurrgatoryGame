@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://d3er2ebsbdmdi"]
+[gd_scene load_steps=23 format=3 uid="uid://d3er2ebsbdmdi"]
 
 [ext_resource type="Script" uid="uid://2gjgjnlekaq4" path="res://entity/main_Character/character_body_2d.gd" id="1_amrj0"]
 [ext_resource type="Texture2D" uid="uid://dcvg10bapya80" path="res://entity/main_Character/sprites/BetterIdleCat.png" id="2_8d3j6"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cvv6fycvmnqyc" path="res://entity/weapons/pistol/small_weapons.tscn" id="3_nw810"]
 [ext_resource type="Script" uid="uid://cb7kjybgprksw" path="res://utility/health.gd" id="4_8d3j6"]
 [ext_resource type="Script" uid="uid://dg51vm8otm1sv" path="res://utility/hurtbox.gd" id="5_nw810"]
-[ext_resource type="FontFile" uid="uid://crsogjk4346dd" path="res://assets/fonts/yoster.ttf" id="7_t37xg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xro2"]
 radius = 1.0
@@ -152,6 +151,29 @@ metadata/_custom_type_script = "uid://dg51vm8otm1sv"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_nw810")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DisplayGoldValue" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="DisplayHealthValue" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_top = 20.0
+offset_bottom = 43.0
+grow_horizontal = 0
 
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="max_health_changed" from="Health" to="." method="_on_health_max_health_changed"]

@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Player
 @onready var sprite = $AnimatedSprite2D
-@export var Gold: int = 0
  
 var upgrades : Array[BaseBulletStrategy] = []
 
