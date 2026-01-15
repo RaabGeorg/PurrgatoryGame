@@ -12,14 +12,11 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	#get_tree().change_scene_to_file("res://root.tscn")
-	var load_screen = load("res://entity/menus/loading_screen.tscn").instantiate()
-	load_screen.target_scene_path = "res://root.tscn"
-	get_tree().root.add_child(load_screen)
-	self.queue_free()
+	get_tree().change_scene_to_file("res://entity/menus/save_menu.tscn")
+
 
 func _on_options_2_pressed() -> void:
-	pass # Replace with function body.ww
+	pass
 
 
 func _on_exit_3_pressed() -> void:

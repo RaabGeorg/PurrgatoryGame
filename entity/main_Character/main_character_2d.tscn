@@ -118,6 +118,7 @@ animations = [{
 radius = 4.0
 
 [node name="mainCharacter2D" type="CharacterBody2D" groups=["Player"]]
+collision_layer = 17
 collision_mask = 2
 script = ExtResource("1_amrj0")
 
@@ -174,6 +175,19 @@ offset_left = -40.0
 offset_top = 20.0
 offset_bottom = 43.0
 grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="DisplaySoulsValue" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0
+offset_top = 40.0
+offset_bottom = 63.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
 
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="max_health_changed" from="Health" to="." method="_on_health_max_health_changed"]

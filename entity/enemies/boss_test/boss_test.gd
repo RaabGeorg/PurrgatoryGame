@@ -7,6 +7,7 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_health_health_depleted() -> void:
+	get_tree().call_group("Player", "dropped_gold", 666, 40)
 	get_tree().call_group("Player", "dropped_gold", 99)
 	get_tree().call_group("game", "start_timer")
 	queue_free()
