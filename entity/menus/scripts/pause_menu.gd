@@ -25,6 +25,13 @@ func pause() -> void:
 	if get_tree().current_scene.get_child(0).get_children().size() == 1:
 		get_tree().paused = true
 	
+	
+func _on_save_pressed() -> void:
+	var player = get_tree().get_first_node_in_group("Player")
+	if player:
+		SaveManager.save_current_game(player)
+
+	
 # -------------- BUTTON COPNNECTORS -----------------------
 func _on_quit_pressed() -> void:
 	if get_tree().paused:
@@ -50,3 +57,7 @@ func _on_options_mouse_exited() -> void:
 
 func _on_quit_mouse_exited() -> void:
 	$VBoxContainer/Quit.release_focus()
+
+
+func _on_save_mouse_exited() -> void:
+	$VBoxContainer/Save.release_focus()

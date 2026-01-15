@@ -34,7 +34,6 @@ shadow_offset = Vector2(0, 3)
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,6 +83,19 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_mtdpf")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_emjh3")
 text = "Options"
 
+[node name="Save" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_qlf07")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ybqm1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mtdpf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_emjh3")
+text = "Save"
+
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -122,5 +134,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="mouse_exited" from="VBoxContainer/Options" to="." method="_on_options_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="mouse_exited" from="VBoxContainer/Save" to="." method="_on_save_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Save" to="." method="_on_save_pressed"]
 [connection signal="mouse_exited" from="VBoxContainer/Quit" to="." method="_on_quit_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
