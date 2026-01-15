@@ -34,8 +34,8 @@ size = Vector2(8, 17)
 
 [node name="BossTest" type="CharacterBody2D"]
 process_mode = 1
-collision_layer = 0
-collision_mask = 0
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_kdjat")
 
 [node name="Indicator" type="Sprite2D" parent="."]
@@ -73,7 +73,7 @@ shape = SubResource("RectangleShape2D_gobpw")
 
 [node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("5_5xclg")
-initial_state = NodePath("ChargePlayer")
+initial_state = NodePath("BossWander")
 
 [node name="BossWander" type="Node" parent="State Machine" node_paths=PackedStringArray("boss")]
 script = ExtResource("6_iogun")

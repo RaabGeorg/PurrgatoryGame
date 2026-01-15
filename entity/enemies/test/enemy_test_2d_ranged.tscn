@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bm5lm1gcvltob" path="res://entity/enemies/test/enemy_test_2d_ranged.gd" id="1_n3x2f"]
 [ext_resource type="Texture2D" uid="uid://6d0y0u3waj6b" path="res://entity/enemies/test/sprites/Imp Sprite Sheet.png" id="2_ftax3"]
-[ext_resource type="PackedScene" path="res://entity/weapons/bullets/test/bullet_enemy.tscn" id="2_g8fgd"]
+[ext_resource type="PackedScene" uid="uid://djscpqst8xbdf" path="res://entity/weapons/bullets/test/bullet_enemy.tscn" id="2_g8fgd"]
 [ext_resource type="Script" uid="uid://cb7kjybgprksw" path="res://utility/health.gd" id="3_g8fgd"]
 [ext_resource type="Script" uid="uid://dg51vm8otm1sv" path="res://utility/hurtbox.gd" id="4_dfdne"]
 [ext_resource type="Script" uid="uid://buw4a5aww2rk4" path="res://utility/hitbox.gd" id="5_ej8so"]
@@ -75,7 +75,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="enemy_test_2D_ranged" type="CharacterBody2D"]
+[node name="enemy_test_2D_ranged" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 2
 script = ExtResource("1_n3x2f")
 bullet_scene = ExtResource("2_g8fgd")
