@@ -44,11 +44,17 @@ func _on_timer_timeout():
 		
 	if x % 20 == 0:
 		boss_spawn_test()
+		
+func safe_state() -> void:
+	var player = get_tree().get_first_node_in_group("Player")
+	if player:
+		SaveManager.save_current_game(player)
 	
 	
 func _process(delta: float) -> void:
 	$mainCharacter2D/Camera2D.enabled = true
 	if Input.is_action_just_pressed("switch"):
+			safe_state()
 			$mainCharacter2D/Camera2D.enabled = false
 			emit_signal("request_open_shop")
 			

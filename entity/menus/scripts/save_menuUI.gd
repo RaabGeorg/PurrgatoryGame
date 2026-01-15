@@ -35,10 +35,7 @@ func start_agme_with_slot(slot: int):
 
 func launch_game(slot: int) -> void:
 	SaveManager.current_slot = slot
-	var load_screen = load("res://entity/menus/loading_screen.tscn").instantiate()
-	load_screen.target_scene_path = "res://root.tscn"
-	get_tree().root.add_child(load_screen)
-	self.queue_free()
+	get_tree().change_scene_to_file("res://entity/menus/permanent_upgrades.tscn")
 	
 
 

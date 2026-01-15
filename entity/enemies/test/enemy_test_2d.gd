@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_health_health_depleted() -> void:
-	get_tree().call_group("Player", "dropped_gold", 40)
+	get_tree().call_group("Player", "dropped_gold", 40, 2)
 	queue_free()
 
 func apply_knockback(from_position: Vector2) -> void:

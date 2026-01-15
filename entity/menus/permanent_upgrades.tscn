@@ -1,0 +1,107 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7271xewkvo2n"]
+
+[ext_resource type="Script" uid="uid://bcnfwskce68ab" path="res://entity/menus/scripts/permanent_upgrades.gd" id="1_iof1r"]
+
+[node name="PermanentUpgrades" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iof1r")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -341.5
+offset_top = -37.5
+offset_right = 341.5
+offset_bottom = 37.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Permanent 1" type="Button" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(225, 75)
+layout_mode = 2
+text = "Permanent 1"
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "3 / 5"
+
+[node name="Max Health" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Permanent 2" type="Button" parent="HBoxContainer/Max Health"]
+custom_minimum_size = Vector2(225, 75)
+layout_mode = 2
+text = "Max Health"
+
+[node name="Label" type="Label" parent="HBoxContainer/Max Health"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "1 / 10"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="Permanent 3" type="Button" parent="HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(225, 75)
+layout_mode = 2
+text = "Permanent 3"
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "2 / 5"
+
+[node name="DisplaySoulsValue" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -92.0
+offset_right = 21.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start_run" type="Button" parent="."]
+custom_minimum_size = Vector2(225, 75)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -112.5
+offset_top = 23.0
+offset_right = 112.5
+offset_bottom = 98.0
+grow_horizontal = 2
+text = "Start Run"
+
+[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/Permanent 1" to="." method="_on_permanent_1_mouse_exited"]
+[connection signal="mouse_exited" from="HBoxContainer/Max Health/Permanent 2" to="." method="_on_permanent_2_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Max Health/Permanent 2" to="." method="_on_permanent_2_pressed"]
+[connection signal="mouse_exited" from="HBoxContainer/VBoxContainer3/Permanent 3" to="." method="_on_permanent_3_mouse_exited"]
+[connection signal="pressed" from="Start_run" to="." method="_on_start_run_pressed"]
