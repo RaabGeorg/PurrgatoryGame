@@ -5,6 +5,20 @@ class_name Player
  
 var upgrades : Array[BaseBulletStrategy] = []
 
+@onready var health = %Health
+
+@export var Gold: int = 0:
+	set(value):
+		Gold = value
+		if %DisplayGoldValue:
+			%DisplayGoldValue.text = "Gold: " + str(Gold)
+			
+func _ready() -> void:
+	%DisplayGoldValue.text = "Gold: " + str(Gold)
+	%DisplayHealthValue.text = "Health: " + str(health.get_health())
+
+
+
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * 62
@@ -14,12 +28,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.play("running")
 		
+	if is_instance_valid(health):
+		print(health.get_health())
+		
 func _process(delta: float) -> void:
 	var mousePosition = get_global_mouse_position().x 
 	if mousePosition < global_position.x:
 		sprite.flip_h = false
 	else:
 		sprite.flip_h = true
+		
+	%DisplayHealthValue.text = "Health: " + str(health.health) + "/" + str(health.max_health)
 		
 
 func _on_health_health_depleted() -> void:

@@ -217,6 +217,9 @@ script = ExtResource("1_e2o6t")
 
 [node name="mainCharacter2D" parent="." instance=ExtResource("2_feb5d")]
 
+[node name="Camera2D" parent="mainCharacter2D" index="2"]
+zoom = Vector2(1.75, 1.75)
+
 [node name="Path2D" type="Path2D" parent="mainCharacter2D"]
 position = Vector2(92.790375, 20.3089)
 scale = Vector2(0.7238382, 0.48497915)
