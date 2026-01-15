@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="SpeedBulletStrategy" load_steps=3 format=3 uid="uid://ds5d43elamiaq"]
+
+[ext_resource type="Script" uid="uid://xxucxfpw50eg" path="res://entity/weapons/bullets/Strategy/speed_bullet_strategy.gd" id="1_detmu"]
+[ext_resource type="Texture2D" uid="uid://ccn6pc16xa5hu" path="res://assets/Arrow.png" id="2_4xfpn"]
+
+[resource]
+script = ExtResource("1_detmu")
+metadata/_custom_type_script = "uid://xxucxfpw50eg"

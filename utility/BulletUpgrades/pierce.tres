@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PiercingBulletStrategy" load_steps=3 format=3 uid="uid://b13tejrpft7l0"]
+
+[ext_resource type="Script" uid="uid://co03w70hsqh1e" path="res://entity/weapons/bullets/Strategy/pierce_bullet_strategy.gd" id="1_45olv"]
+[ext_resource type="Texture2D" uid="uid://ccn6pc16xa5hu" path="res://assets/Arrow.png" id="2_34mid"]
+
+[resource]
+script = ExtResource("1_45olv")
+metadata/_custom_type_script = "uid://co03w70hsqh1e"

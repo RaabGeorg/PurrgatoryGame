@@ -19,3 +19,9 @@ texture = ExtResource("2_pm48c")
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/pistol"]
 unique_name_in_owner = true
 position = Vector2(6.7767606, 4.7193627)
+
+[node name="ShootCooldown" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="timeout" from="ShootCooldown" to="." method="_on_shoot_cooldown_timeout"]

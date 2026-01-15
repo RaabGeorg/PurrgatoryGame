@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://c3upggn1bdymb"]
+
+[ext_resource type="Script" uid="uid://cww207afq3lst" path="res://utility/BulletUpgrades/upgrade.gd" id="1_g5imp"]
+[ext_resource type="Script" uid="uid://b7a76elxtbdjx" path="res://entity/weapons/bullets/Strategy/base_bullet_strategy.gd" id="2_eucxf"]
+[ext_resource type="Texture2D" uid="uid://ccn6pc16xa5hu" path="res://assets/Arrow.png" id="2_l8l4x"]
+[ext_resource type="FontFile" uid="uid://crsogjk4346dd" path="res://assets/fonts/yoster.ttf" id="2_yuy32"]
+
+[sub_resource type="Resource" id="Resource_4lvr4"]
+script = ExtResource("2_eucxf")
+metadata/_custom_type_script = "uid://b7a76elxtbdjx"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8l4x"]
+
+[node name="Upgrade" type="Area2D" node_paths=PackedStringArray("upgrade_label", "sprite")]
+position = Vector2(230, 277)
+collision_layer = 256
+collision_mask = 8
+script = ExtResource("1_g5imp")
+upgrade_label = NodePath("UpgradeLabel")
+sprite = NodePath("Sprite2D")
+bullet_strategy = SubResource("Resource_4lvr4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_l8l4x")
+
+[node name="UpgradeLabel" type="Label" parent="."]
+offset_left = -10.0
+offset_top = -21.0
+offset_right = 30.0
+offset_bottom = 2.0
+theme_override_fonts/font = ExtResource("2_yuy32")
+theme_override_font_sizes/font_size = 8
+text = "Nothing"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_l8l4x")

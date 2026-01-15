@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CooldownBulletStrategy" load_steps=3 format=3 uid="uid://dsc8eroaeb3jp"]
+
+[ext_resource type="Script" uid="uid://c7yf10ldiwc24" path="res://entity/weapons/bullets/Strategy/cooldown_bullet_strategy.gd" id="1_t10k5"]
+[ext_resource type="Texture2D" uid="uid://ccn6pc16xa5hu" path="res://assets/Arrow.png" id="2_3rb3v"]
+
+[resource]
+script = ExtResource("1_t10k5")
+metadata/_custom_type_script = "uid://c7yf10ldiwc24"

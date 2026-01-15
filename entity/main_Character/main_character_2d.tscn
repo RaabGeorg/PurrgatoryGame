@@ -136,11 +136,6 @@ zoom = Vector2(1.75, 1.75)
 
 [node name="small_weapons" parent="." instance=ExtResource("3_nw810")]
 
-[node name="ShootCooldown" type="Timer" parent="small_weapons"]
-unique_name_in_owner = true
-wait_time = 0.5
-one_shot = true
-
 [node name="Health" type="Node" parent="."]
 script = ExtResource("4_8d3j6")
 metadata/_custom_type_script = "uid://cb7kjybgprksw"
@@ -156,7 +151,6 @@ metadata/_custom_type_script = "uid://dg51vm8otm1sv"
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_nw810")
 
-[connection signal="timeout" from="small_weapons/ShootCooldown" to="small_weapons" method="_on_shoot_cooldown_timeout"]
 [connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
 [connection signal="max_health_changed" from="Health" to="." method="_on_health_max_health_changed"]
 

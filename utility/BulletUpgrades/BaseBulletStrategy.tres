@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="BaseBulletStrategy" load_steps=3 format=3 uid="uid://cts6h5uodqn33"]
+
+[ext_resource type="Script" uid="uid://b7a76elxtbdjx" path="res://entity/weapons/bullets/Strategy/base_bullet_strategy.gd" id="1_rkaug"]
+[ext_resource type="Texture2D" uid="uid://ccn6pc16xa5hu" path="res://assets/Arrow.png" id="2_0cu5r"]
+
+[resource]
+script = ExtResource("1_rkaug")
+metadata/_custom_type_script = "uid://b7a76elxtbdjx"
