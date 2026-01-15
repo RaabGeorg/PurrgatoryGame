@@ -4,16 +4,16 @@
 [ext_resource type="Script" uid="uid://bm0b8hftowp1e" path="res://stages/shop_background.gd" id="1_iw0nx"]
 [ext_resource type="PackedScene" uid="uid://d3er2ebsbdmdi" path="res://entity/main_Character/main_character_2d.tscn" id="2_iw0nx"]
 [ext_resource type="PackedScene" uid="uid://c3upggn1bdymb" path="res://utility/BulletUpgrades/upgrade.tscn" id="4_jc75s"]
-[ext_resource type="Script" uid="uid://b7a76elxtbdjx" path="res://entity/weapons/bullets/Strategy/base_bullet_strategy.gd" id="5_u5gcx"]
+[ext_resource type="Script" uid="uid://xxucxfpw50eg" path="res://entity/weapons/bullets/Strategy/speed_bullet_strategy.gd" id="5_tdyy5"]
 [ext_resource type="Texture2D" uid="uid://ccn6pc16xa5hu" path="res://assets/Arrow.png" id="6_0uiji"]
 [ext_resource type="Resource" uid="uid://ds5d43elamiaq" path="res://utility/BulletUpgrades/speed.tres" id="7_0uiji"]
 [ext_resource type="Script" uid="uid://co03w70hsqh1e" path="res://entity/weapons/bullets/Strategy/pierce_bullet_strategy.gd" id="8_qfbv3"]
 [ext_resource type="Script" uid="uid://c7yf10ldiwc24" path="res://entity/weapons/bullets/Strategy/cooldown_bullet_strategy.gd" id="9_75mcs"]
 [ext_resource type="Resource" uid="uid://dsc8eroaeb3jp" path="res://utility/BulletUpgrades/cooldown.tres" id="10_tdyy5"]
 
-[sub_resource type="Resource" id="Resource_qfbv3"]
-script = ExtResource("5_u5gcx")
-metadata/_custom_type_script = "uid://b7a76elxtbdjx"
+[sub_resource type="Resource" id="Resource_d33ny"]
+script = ExtResource("5_tdyy5")
+metadata/_custom_type_script = "uid://xxucxfpw50eg"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u5gcx"]
 
@@ -41,7 +41,7 @@ collision_mask = 8
 
 [node name="Upgrade" parent="." instance=ExtResource("4_jc75s")]
 position = Vector2(-34, 69)
-bullet_strategy = SubResource("Resource_qfbv3")
+bullet_strategy = SubResource("Resource_d33ny")
 
 [node name="CollisionShape2D" parent="Upgrade" index="0"]
 position = Vector2(28, 30)
