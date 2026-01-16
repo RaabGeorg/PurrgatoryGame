@@ -44,7 +44,7 @@ text = "Permanent 1"
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "3 / 5"
+text = "Placeholder"
 
 [node name="Max Health" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -57,7 +57,7 @@ text = "Max Health"
 [node name="Label" type="Label" parent="HBoxContainer/Max Health"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "1 / 10"
+text = "Cost: 20 Souls"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -70,7 +70,7 @@ text = "Permanent 3"
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "2 / 5"
+text = "Placeholder"
 
 [node name="DisplaySoulsValue" type="Label" parent="."]
 unique_name_in_owner = true
