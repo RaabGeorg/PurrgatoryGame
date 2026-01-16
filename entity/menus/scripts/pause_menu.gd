@@ -30,12 +30,19 @@ func _on_save_pressed() -> void:
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
 		SaveManager.save_current_game(player)
+	get_tree().paused = false
+	hide()
+	get_tree().change_scene_to_file("res://entity/menus/permanent_upgrades.tscn")
 
 	
 # -------------- BUTTON COPNNECTORS -----------------------
 func _on_quit_pressed() -> void:
 	if get_tree().paused:
 		get_tree().paused = false
+		
+	var player = get_tree().get_first_node_in_group("Player")
+	if player:
+		SaveManager.save_current_game(player)
 	
 	get_tree().change_scene_to_file("res://entity/menus/home_menu.tscn")
 	hide()

@@ -15,7 +15,7 @@ func load_and_display() -> void:
 	
 	if not current_data:
 		current_data = PlayerData.new()
-		current_data.max_health = 10
+		current_data.max_health = 5
 		current_data.souls = 0
 		
 	update_ui_text()
@@ -25,7 +25,12 @@ func update_ui_text() -> void:
 
 
 func _on_permanent_2_pressed() -> void:
-	var cost = 10
+	var cost = 20
+	var health_limit = 10
+	
+	if current_data.max_health >= health_limit:
+		print("Maximum health reached")
+		return
 	
 	if current_data.souls >= cost:
 		current_data.souls -= cost

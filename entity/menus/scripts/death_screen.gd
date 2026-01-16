@@ -7,7 +7,7 @@ func _on_quit_to_menu_pressed() -> void:
 
 func _on_restart_pressed() -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://root.tscn")
+	get_tree().change_scene_to_file("res://entity/menus/permanent_upgrades.tscn")
 
 
 func _on_options_pressed() -> void:
