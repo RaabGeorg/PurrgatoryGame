@@ -1,7 +1,9 @@
 extends CharacterBody2D
 class_name Player
 @onready var sprite = $AnimatedSprite2D
- 
+
+@export var tilemap: TileMapLayer
+
 var upgrades : Array[BaseBulletStrategy] = []
 
 @onready var health = %Health
@@ -49,9 +51,13 @@ func _physics_process(delta: float) -> void:
 		sprite.play("idle")
 	else:
 		sprite.play("running")
-		
-	#if is_instance_valid(health):
-		#print(health.get_health())
+	var local_pos = tilemap.to_local(global_position)
+	var cell = tilemap.local_to_map(local_pos)
+	var data = tilemap.get_cell_tile_data(cell)
+	var in_lava = data != null and data.get_custom_data("hazard") == true
+	if in_lava:
+		health.health -= 1
+		health.set_temporary_immortality(1)
 		
 func _process(delta: float) -> void:
 	var mousePosition = get_global_mouse_position().x 
