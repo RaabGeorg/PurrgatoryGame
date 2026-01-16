@@ -81,6 +81,7 @@ script = ExtResource("1_n3x2f")
 bullet_scene = ExtResource("2_g8fgd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_hhnj2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -102,6 +103,7 @@ health = NodePath("../Health")
 metadata/_custom_type_script = "uid://dg51vm8otm1sv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_hhnj2")
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -111,6 +113,7 @@ script = ExtResource("5_ej8so")
 metadata/_custom_type_script = "uid://buw4a5aww2rk4"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_hhnj2")
 
 [node name="Muzzle" type="Marker2D" parent="."]
