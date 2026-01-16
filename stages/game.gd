@@ -42,7 +42,7 @@ func _on_timer_timeout():
 	if x % 10 == 0:
 		spawn_count += 1
 		
-	if x % 120 == 0:
+	if x % 50 == 0:
 		arena.global_position = %mainCharacter2D.global_position
 		add_child(arena)
 		for n in get_tree().get_nodes_in_group("enemy"):
