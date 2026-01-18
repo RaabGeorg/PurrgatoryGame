@@ -18,10 +18,10 @@ func move(up: bool):
 		x = -1
 		vec = Vector2.UP
 	else:
-		x = 2
+		x = 1
 		vec = Vector2.DOWN
 		
-	%Indicator.rotate(x * PI * 0.5)
+	%Indicator.rotation = x * PI / 2
 	%Indicator.show()
 	await get_tree().create_timer(0.5, false).timeout
 	boss.velocity = vec * 220

@@ -26,6 +26,16 @@ func spawn_mob_ranged():
 	add_child(new_mob)
 
 func boss_spawn_test(choice: int):
+	for n in get_tree().get_nodes_in_group("enemy"):
+		n.queue_free()
+	
+	%BossText.show()
+	await get_tree().create_timer(6, false).timeout
+	%BossText.hide()
+	
+	arena.global_position = %mainCharacter2D.global_position
+	add_child(arena)
+
 	match choice:
 		1:
 			var new_mob = preload("res://entity/enemies/boss_test/boss_Test.tscn").instantiate()
@@ -47,14 +57,13 @@ func _on_timer_timeout():
 	if x % 10 == 0:
 		spawn_count += 1
 		
-	if x % 50 == 0:
-		arena.global_position = %mainCharacter2D.global_position
-		add_child(arena)
-		for n in get_tree().get_nodes_in_group("enemy"):
-			n.queue_free()
+	if x % 10 == 0:
+		%WaveTimer.stop()
+		boss_spawn_test(1)
+		
+	if x % 15 == 0:
 		%WaveTimer.stop()
 		boss_spawn_test(2)
-		
 		
 func safe_state() -> void:
 	var player = get_tree().get_first_node_in_group("Player")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cnci1bl238no5"]
+[gd_scene load_steps=20 format=4 uid="uid://cnci1bl238no5"]
 
 [ext_resource type="Script" uid="uid://bos1y3fm6048l" path="res://stages/game.gd" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://d3er2ebsbdmdi" path="res://entity/main_Character/main_character_2d.tscn" id="2_feb5d"]
@@ -7,12 +7,54 @@
 [ext_resource type="Script" uid="uid://e45byecr4gi6" path="res://addons/gaea/resources/materials/data/tilemap_material.gd" id="5_iq2xw"]
 [ext_resource type="Script" uid="uid://dae6umbqb872e" path="res://addons/gaea/resources/gaea_graph.gd" id="6_tcn46"]
 [ext_resource type="Script" uid="uid://ifnbyjmpjfpt" path="res://addons/gaea/nodes/chunk_loaders/chunk_loader_2d.gd" id="7_uqmsa"]
+[ext_resource type="Texture2D" uid="uid://drj33d60o1oco" path="res://assets/fonts/BossIncoming.png" id="8_tc8sp"]
 
 [sub_resource type="Curve2D" id="Curve2D_vvh5c"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -513.6374, -400.6541, 0, 0, 0, 0, 251.727, -394.4683, 0, 0, 0, 0, 251.727, 318.96442, 0, 0, 0, 0, -515.0189, 310.71664, 0, 0, 0, 0, -513.6374, -400.6541)
 }
 point_count = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iq2xw"]
+atlas = ExtResource("8_tc8sp")
+region = Rect2(0, 0, 320, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcn46"]
+atlas = ExtResource("8_tc8sp")
+region = Rect2(320, 0, 320, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uqmsa"]
+atlas = ExtResource("8_tc8sp")
+region = Rect2(640, 0, 320, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1is0r"]
+atlas = ExtResource("8_tc8sp")
+region = Rect2(960, 0, 320, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_37vyd"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iq2xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcn46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uqmsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1is0r")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 6.0
+}]
 
 [sub_resource type="Resource" id="Resource_ab83r"]
 script = ExtResource("4_tc8sp")
@@ -227,6 +269,15 @@ curve = SubResource("Curve2D_vvh5c")
 [node name="PathFollow2D" type="PathFollow2D" parent="mainCharacter2D/Path2D"]
 position = Vector2(-513.6374, -400.6541)
 rotation = 0.008082015
+
+[node name="BossText" type="AnimatedSprite2D" parent="mainCharacter2D"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -79)
+sprite_frames = SubResource("SpriteFrames_37vyd")
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.77828175
 
 [node name="WaveTimer" type="Timer" parent="."]
 unique_name_in_owner = true

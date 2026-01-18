@@ -24,7 +24,7 @@ func Enter():
 	
 	for n in randi_range(1, 4):
 		await get_tree().create_timer(0.5, false).timeout
-		spawn_ring(PI/randi_range(6, 24), 7)
+		spawn_ring(PI/randi_range(6, 24), randi_range(2, 7))
 	
 	if %SpecialAttackCD.is_stopped():
 		await get_tree().create_timer(0.5, false).timeout
