@@ -92,7 +92,7 @@ frame_progress = 0.2705867
 
 [node name="Health" type="Node" parent="."]
 script = ExtResource("3_u5jw4")
-max_health = 1
+max_health = 2
 metadata/_custom_type_script = "uid://cb7kjybgprksw"
 
 [node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]

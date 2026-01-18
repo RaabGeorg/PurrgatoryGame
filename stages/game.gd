@@ -5,11 +5,13 @@ var x = 2
 var spawn_count = 1
 var wait_time = 0.75 
 
+@onready var Canvas = get_node("mainCharacter2D/CanvasLayer")
 @onready var path_follow = get_node("mainCharacter2D/Path2D/PathFollow2D")
 @onready var arena = preload("res://stages/boss_arena.tscn").instantiate()
 signal request_open_shop
 
 func _ready() -> void:
+	Canvas.visible = true
 	$mainCharacter2D/Camera2D.enabled = true
 	
 	
@@ -60,16 +62,29 @@ func safe_state() -> void:
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
 		SaveManager.save_current_game(player)
-	
+
+func load_state() -> void:
+	var player = get_tree().get_first_node_in_group("Player")
+	if player:
+		SaveManager.load_from_slot(1,player)
+		print(player.Gold)
+		
+func open_game():
+	load_state()
+	Canvas.visible = true
+	$mainCharacter2D/Camera2D.enabled = true
+
 func start_timer():
 	arena.queue_free()
 	arena = preload("res://stages/boss_arena.tscn").instantiate()
 	%WaveTimer.start()
 	
 func _process(delta: float) -> void:
+	Canvas.visible = true
 	$mainCharacter2D/Camera2D.enabled = true
 	if Input.is_action_just_pressed("switch"):
 			safe_state()
+			Canvas.visible = false
 			$mainCharacter2D/Camera2D.enabled = false
 			emit_signal("request_open_shop")
 			

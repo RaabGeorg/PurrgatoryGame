@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://b6eqjoipd7aix"]
+
+[ext_resource type="Script" uid="uid://jyag5ubncv44" path="res://utility/BulletUpgrades/new_Upgrade.gd" id="1_7mao3"]
+[ext_resource type="Script" uid="uid://xxucxfpw50eg" path="res://entity/weapons/bullets/Strategy/speed_bullet_strategy.gd" id="2_jifxl"]
+[ext_resource type="Texture2D" uid="uid://ccn6pc16xa5hu" path="res://assets/Arrow.png" id="3_ps61t"]
+
+[sub_resource type="Resource" id="Resource_mbijx"]
+script = ExtResource("2_jifxl")
+metadata/_custom_type_script = "uid://xxucxfpw50eg"
+
+[sub_resource type="FontVariation" id="FontVariation_d33ny"]
+
+[node name="RayCast2D" type="RayCast2D" node_paths=PackedStringArray("upgrade_label", "sprite")]
+exclude_parent = false
+target_position = Vector2(-23, -25)
+collision_mask = 8
+collide_with_areas = true
+script = ExtResource("1_7mao3")
+upgrade_label = NodePath("UpgradeLabel")
+sprite = NodePath("Sprite2D")
+bullet_strategy = SubResource("Resource_mbijx")
+price = 500
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-14, -9)
+scale = Vector2(0.67187494, 0.828125)
+texture = ExtResource("3_ps61t")
+
+[node name="UpgradeLabel" type="Label" parent="."]
+offset_left = -26.0
+offset_top = -23.0
+offset_right = 2.0
+offset_bottom = -4.5
+theme_override_fonts/font = SubResource("FontVariation_d33ny")
+theme_override_font_sizes/font_size = 7
+text = "Nothing"
