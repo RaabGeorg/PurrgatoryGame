@@ -22,7 +22,7 @@ func update_button_text():
 		
 		if FileAccess.file_exists(path):
 			buttons[i].text = "Save %d" % slot_num
-		else: buttons[i].text = "Emty"
+		else: buttons[i].text = "Empty"
 			
 
 
