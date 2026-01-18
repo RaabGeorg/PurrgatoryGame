@@ -215,8 +215,9 @@ other = {
 [node name="Game" type="Node2D" groups=["game"]]
 script = ExtResource("1_e2o6t")
 
-[node name="mainCharacter2D" parent="." instance=ExtResource("2_feb5d")]
+[node name="mainCharacter2D" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("2_feb5d")]
 unique_name_in_owner = true
+tilemap = NodePath("../MapGenerator/TileMapLayer")
 
 [node name="Path2D" type="Path2D" parent="mainCharacter2D"]
 position = Vector2(92.790375, 20.3089)
@@ -229,7 +230,7 @@ rotation = 0.008082015
 
 [node name="WaveTimer" type="Timer" parent="."]
 unique_name_in_owner = true
-wait_time = 3.0
+wait_time = 2.0
 autostart = true
 
 [node name="MapGenerator" parent="." instance=ExtResource("3_5kqkd")]

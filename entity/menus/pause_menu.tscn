@@ -94,7 +94,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qlf07")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ybqm1")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mtdpf")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_emjh3")
-text = "Save"
+text = "Retry"
 
 [node name="Quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
