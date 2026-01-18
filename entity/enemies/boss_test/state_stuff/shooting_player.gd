@@ -34,6 +34,7 @@ func spawn_ring(angle_offset: float, count: int):
 		get_tree().current_scene.add_child(b)
 		b.global_position = %ShootingPoint.global_position
 		b.global_rotation = TAU / count * m + angle_offset
+		
 func Enter():
 	boss.velocity = Vector2.ZERO
 	shoot()

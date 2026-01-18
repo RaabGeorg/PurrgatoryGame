@@ -1,33 +1,18 @@
-[gd_scene load_steps=7 format=3 uid="uid://tvbwg1qpne7m"]
+[gd_scene load_steps=8 format=3 uid="uid://tvbwg1qpne7m"]
 
 [ext_resource type="Script" uid="uid://buw4a5aww2rk4" path="res://utility/hitbox.gd" id="1_0ccnf"]
+[ext_resource type="Script" uid="uid://b3dtld470n1od" path="res://entity/enemies/boss_two/duo_bullet.gd" id="1_tr5yf"]
 [ext_resource type="Texture2D" uid="uid://bnshr633d0d8g" path="res://entity/enemies/boss_test/sprites/BossBullet.png" id="2_tr5yf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5tdu1"]
 radius = 3.333334
-
-[sub_resource type="Animation" id="Animation_cb7yh"]
-resource_name = "rotate"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, -6.2831855]
-}
 
 [sub_resource type="Animation" id="Animation_qg2l7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath("BulletNodeInBulletCusImLosingMyMindAndIDontWannaDoThisAnymore:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,6 +22,22 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_cb7yh"]
+resource_name = "rotate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BulletNodeInBulletCusImLosingMyMindAndIDontWannaDoThisAnymore:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -6.2831855]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y715q"]
 _data = {
 &"RESET": SubResource("Animation_qg2l7"),
@@ -44,34 +45,38 @@ _data = {
 }
 
 [node name="DuoBullet" type="Node2D"]
+z_index = 199
+script = ExtResource("1_tr5yf")
 
-[node name="HitBox" type="Area2D" parent="."]
+[node name="BulletNodeInBulletCusImLosingMyMindAndIDontWannaDoThisAnymore" type="Node2D" parent="."]
+
+[node name="HitBox" type="Area2D" parent="BulletNodeInBulletCusImLosingMyMindAndIDontWannaDoThisAnymore"]
 position = Vector2(-15.999993, -0.037149936)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_0ccnf")
 metadata/_custom_type_script = "uid://buw4a5aww2rk4"
 
-[node name="BossBullet1" type="Sprite2D" parent="HitBox"]
+[node name="BossBullet1" type="Sprite2D" parent="BulletNodeInBulletCusImLosingMyMindAndIDontWannaDoThisAnymore/HitBox"]
 texture = ExtResource("2_tr5yf")
 offset = Vector2(7.6293945e-06, -0.037149936)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletNodeInBulletCusImLosingMyMindAndIDontWannaDoThisAnymore/HitBox"]
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_5tdu1")
 
-[node name="HitBox2" type="Area2D" parent="."]
+[node name="HitBox2" type="Area2D" parent="BulletNodeInBulletCusImLosingMyMindAndIDontWannaDoThisAnymore"]
 position = Vector2(5.761658e-06, -0.03125)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_0ccnf")
 metadata/_custom_type_script = "uid://buw4a5aww2rk4"
 
-[node name="BossBullet2" type="Sprite2D" parent="HitBox2"]
+[node name="BossBullet2" type="Sprite2D" parent="BulletNodeInBulletCusImLosingMyMindAndIDontWannaDoThisAnymore/HitBox2"]
 texture = ExtResource("2_tr5yf")
 offset = Vector2(16, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletNodeInBulletCusImLosingMyMindAndIDontWannaDoThisAnymore/HitBox2"]
 position = Vector2(15.999993, 0.031249998)
 scale = Vector2(0.8, 0.8)
 shape = SubResource("CircleShape2D_5tdu1")

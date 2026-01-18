@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=3 uid="uid://bf860fwkp4t4s"]
+
+[ext_resource type="Script" uid="uid://2oosd5d7fhax" path="res://entity/enemies/boss_two/second_boss.gd" id="1_lnq6f"]
+[ext_resource type="Script" uid="uid://cb7kjybgprksw" path="res://utility/health.gd" id="2_4pyeb"]
+[ext_resource type="Texture2D" uid="uid://banlf1kodeet7" path="res://entity/enemies/boss_test/sprites/Arrow.png" id="2_hmi0m"]
+[ext_resource type="Script" uid="uid://dg51vm8otm1sv" path="res://utility/hurtbox.gd" id="3_4e8cl"]
+[ext_resource type="Script" uid="uid://buw4a5aww2rk4" path="res://utility/hitbox.gd" id="4_hmi0m"]
+[ext_resource type="Texture2D" uid="uid://yw8t0beb7igs" path="res://entity/enemies/boss_two/sprites/kork.png" id="5_7rqmb"]
+[ext_resource type="Script" uid="uid://dtx2phdcbh8yh" path="res://entity/enemies/boss_test/state_stuff/state_machine.gd" id="6_woxpt"]
+[ext_resource type="Script" uid="uid://bme2yyrygeqwk" path="res://entity/enemies/boss_two/crazy_shot.gd" id="7_4pyeb"]
+[ext_resource type="Script" uid="uid://ofhe3uhy62dh" path="res://entity/enemies/boss_two/portal_attack.gd" id="8_4e8cl"]
+[ext_resource type="Script" uid="uid://rhjsib4aliw" path="res://entity/enemies/boss_two/portal_attack_2.gd" id="10_7rqmb"]
+[ext_resource type="Script" uid="uid://c4aaj232w17ui" path="res://entity/enemies/boss_two/portal_attack_3.gd" id="11_woxpt"]
+[ext_resource type="Script" uid="uid://bc7281ji1ph2i" path="res://entity/enemies/boss_two/basic_attack.gd" id="12_rm7b3"]
+[ext_resource type="Script" uid="uid://bb43e26p4gu4k" path="res://entity/enemies/boss_two/basic_attack_2.gd" id="13_wutbm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rm7b3"]
+size = Vector2(18, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wutbm"]
+size = Vector2(14, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eoa4n"]
+size = Vector2(10, 13)
+
+[node name="SecondBoss" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_lnq6f")
+
+[node name="SpecialAttackCD" type="Timer" parent="."]
+unique_name_in_owner = true
+process_callback = 0
+wait_time = 6.0
+one_shot = true
+autostart = true
+
+[node name="Indicator" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 2
+texture = ExtResource("2_hmi0m")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_4pyeb")
+max_health = 67
+metadata/_custom_type_script = "uid://cb7kjybgprksw"
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("health")]
+collision_layer = 0
+script = ExtResource("3_4e8cl")
+health = NodePath("../Health")
+metadata/_custom_type_script = "uid://dg51vm8otm1sv"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_rm7b3")
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("4_hmi0m")
+metadata/_custom_type_script = "uid://buw4a5aww2rk4"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_wutbm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_eoa4n")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("5_7rqmb")
+
+[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("6_woxpt")
+initial_state = NodePath("BasicAttack2")
+
+[node name="CrazyShot" type="Node" parent="State Machine" node_paths=PackedStringArray("boss")]
+script = ExtResource("7_4pyeb")
+boss = NodePath("../..")
+
+[node name="PortalAttack" type="Node" parent="State Machine" node_paths=PackedStringArray("boss")]
+script = ExtResource("8_4e8cl")
+boss = NodePath("../..")
+
+[node name="PortalAttack2" type="Node" parent="State Machine" node_paths=PackedStringArray("boss")]
+script = ExtResource("10_7rqmb")
+boss = NodePath("../..")
+
+[node name="PortalAttack3" type="Node" parent="State Machine" node_paths=PackedStringArray("boss")]
+script = ExtResource("11_woxpt")
+boss = NodePath("../..")
+
+[node name="BasicAttack" type="Node" parent="State Machine" node_paths=PackedStringArray("boss")]
+script = ExtResource("12_rm7b3")
+boss = NodePath("../..")
+
+[node name="BasicAttack2" type="Node" parent="State Machine" node_paths=PackedStringArray("boss")]
+script = ExtResource("13_wutbm")
+boss = NodePath("../..")
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
+unique_name_in_owner = true
+
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]
