@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://ctm3mfyv8qtbd"]
+
+[ext_resource type="Script" uid="uid://bjs77nrd4yoty" path="res://entity/enemies/boss_two/bullet_portal.gd" id="1_bs164"]
+[ext_resource type="Texture2D" uid="uid://qp502vrgdbby" path="res://entity/enemies/boss_two/sprites/BulletPortal.png" id="2_sh7ir"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hht7"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcntw"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t4oa"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i3f2f"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyvt2"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h4n8"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w188p"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wl2id"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wd2h"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poy80"]
+atlas = ExtResource("2_sh7ir")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n1b84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hht7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcntw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t4oa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i3f2f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyvt2")
+}],
+"loop": false,
+"name": &"appear",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h4n8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w188p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wl2id")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wd2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poy80")
+}],
+"loop": false,
+"name": &"disappear",
+"speed": 5.0
+}]
+
+[node name="BulletPortal" type="Node2D"]
+script = ExtResource("1_bs164")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 200
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_n1b84")
+animation = &"disappear"
+
+[node name="ShootingPoint" type="Marker2D" parent="."]
