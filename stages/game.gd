@@ -59,11 +59,11 @@ func _on_timer_timeout():
 	if x % 10 == 0:
 		spawn_count += 1
 		
-	if x % 10 == 0:
+	if x % 120 == 0:
 		%WaveTimer.stop()
 		boss_spawn_test(1)
 		
-	if x % 15 == 0:
+	if x % 240 == 0:
 		%WaveTimer.stop()
 		boss_spawn_test(2)
 		
