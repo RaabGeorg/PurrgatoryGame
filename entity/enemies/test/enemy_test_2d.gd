@@ -29,7 +29,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		sprite.flip_h = true
 
-
 func _on_health_health_depleted() -> void:
 	get_tree().call_group("Player", "dropped_gold", 40, 1)
 	queue_free()

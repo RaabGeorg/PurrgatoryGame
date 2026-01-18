@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DamageBulletStrategy" load_steps=3 format=3 uid="uid://cx80wo83bg3vq"]
+
+[ext_resource type="Script" uid="uid://dydj7mwbcwro" path="res://entity/weapons/bullets/Strategy/damage_bullet_strategy.gd" id="1_2o5g4"]
+[ext_resource type="Texture2D" uid="uid://ccn6pc16xa5hu" path="res://assets/Arrow.png" id="2_6eop1"]
+
+[resource]
+script = ExtResource("1_2o5g4")
+metadata/_custom_type_script = "uid://dydj7mwbcwro"

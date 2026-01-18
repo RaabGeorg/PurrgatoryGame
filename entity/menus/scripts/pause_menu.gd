@@ -33,7 +33,6 @@ func _on_save_pressed() -> void:
 	get_tree().paused = false
 	hide()
 	get_tree().change_scene_to_file("res://entity/menus/permanent_upgrades.tscn")
-
 	
 # -------------- BUTTON COPNNECTORS -----------------------
 func _on_quit_pressed() -> void:

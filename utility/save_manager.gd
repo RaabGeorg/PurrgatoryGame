@@ -16,7 +16,7 @@ func save_to_slot(slot: int, player: Player):
 	current_slot = slot
 	var data = player.get_save_data()
 	var path = _get_path(slot)
-	
+	print_resource(data)
 	var error = ResourceSaver.save(data, path)
 	if error == OK:
 		print("Successfully saved to: ", path)
@@ -34,6 +34,7 @@ func load_from_slot(slot: int, player: Player) -> bool:
 		return false
 		
 	var data = ResourceLoader.load(path)
+	print_resource(data)
 	if data:
 		player.load_save_data(data) 
 		print("Successfully loaded: ", path)
@@ -53,3 +54,9 @@ func delete_save(slot: int):
 	var path = _get_path(slot)
 	if FileAccess.file_exists(path):
 		DirAccess.remove_absolute(path)
+		
+func print_resource(res: Resource):
+	for prop in res.get_property_list():
+		if prop.usage & PROPERTY_USAGE_STORAGE:
+			var name = prop.name
+			print(name, " = ", res.get(name))
