@@ -3,7 +3,7 @@ extends Node2D
 @onready var container := $SceneContainer
 var game_scene: Node
 var shop_scene: Node
-
+var first = true 
 func _ready() -> void:
 	game_scene = load("res://stages/game.tscn").instantiate()
 	container.add_child(game_scene)
@@ -12,6 +12,10 @@ func _ready() -> void:
 func load_game():
 	get_tree().paused = false
 	game_scene.visible = true
+	if first != true:
+			game_scene.open_game()
+	else:
+		first = false
 	game_scene.request_open_shop.connect(open_shop)
 	
 func open_shop():

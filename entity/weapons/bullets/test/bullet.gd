@@ -3,6 +3,7 @@ class_name bullet
 # Called when the node enters the scene tree for the first time.
 @export var SPEED: int = 300
 @export var max_pierce := 1
+@onready var hitbox: Area2D = %HitBox
 
 var current_pierce_count := 0
 
