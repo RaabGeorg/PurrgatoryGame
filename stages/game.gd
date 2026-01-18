@@ -4,6 +4,7 @@ var in_game: bool = true
 var x = 2
 var spawn_count = 1
 var wait_time = 0.75 
+var boss_spawn_decision = 0
 
 @onready var Canvas = get_node("mainCharacter2D/CanvasLayer")
 @onready var path_follow = get_node("mainCharacter2D/Path2D/PathFollow2D")
@@ -39,33 +40,33 @@ func boss_spawn_test(choice: int):
 	add_child(arena)
 
 	match choice:
-		1:
+		0:
 			var new_mob = preload("res://entity/enemies/boss_test/boss_Test.tscn").instantiate()
 			new_mob.global_position = %mainCharacter2D.global_position + Vector2(0, -115)
 			add_child(new_mob)
-		2:
+		1:
 			var new_mob = preload("res://entity/enemies/boss_two/secondBoss.tscn").instantiate()
 			new_mob.global_position = %mainCharacter2D.global_position + Vector2(0, -115)
 			add_child(new_mob)
 
 
 func _on_timer_timeout():
+	
 	for i in range(spawn_count):
 		spawn_mob()
-		if i % 2 == 0:
+		if i % 4 == 0:
 			spawn_mob_ranged()
 	x += 1
 	
 	if x % 10 == 0:
 		spawn_count += 1
 		
-	if x % 120 == 0:
-		%WaveTimer.stop()
-		boss_spawn_test(1)
+	if x % 10 == 0:
 		
-	if x % 240 == 0:
 		%WaveTimer.stop()
-		boss_spawn_test(2)
+		boss_spawn_test(boss_spawn_decision % 2)
+		boss_spawn_decision += 1
+		
 		
 func safe_state() -> void:
 	var player = get_tree().get_first_node_in_group("Player")

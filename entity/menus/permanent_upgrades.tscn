@@ -102,11 +102,18 @@ text = "Start Run"
 
 [node name="BuyCounter" type="Label" parent="."]
 unique_name_in_owner = true
-layout_mode = 0
-offset_left = 780.0
-offset_top = 510.0
-offset_right = 820.0
-offset_bottom = 533.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = 56.0
+offset_right = 21.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/Permanent 1" to="." method="_on_permanent_1_mouse_exited"]
 [connection signal="mouse_exited" from="HBoxContainer/Max Health/Permanent 2" to="." method="_on_permanent_2_mouse_exited"]

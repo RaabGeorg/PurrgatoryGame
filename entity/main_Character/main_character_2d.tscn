@@ -7,9 +7,6 @@
 [ext_resource type="Script" uid="uid://cb7kjybgprksw" path="res://utility/health.gd" id="4_8d3j6"]
 [ext_resource type="Script" uid="uid://dg51vm8otm1sv" path="res://utility/hurtbox.gd" id="5_nw810"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6xro2"]
-radius = 1.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_b23ba"]
 atlas = ExtResource("2_8d3j6")
 region = Rect2(0, 0, 32, 32)
@@ -114,6 +111,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_6xro2"]
+radius = 1.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_nw810"]
 radius = 3.0
 
@@ -122,13 +122,13 @@ collision_layer = 33
 collision_mask = 2
 script = ExtResource("1_amrj0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_6xro2")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_hswio")
 animation = &"running"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6xro2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
@@ -150,7 +150,6 @@ health = NodePath("../Health")
 metadata/_custom_type_script = "uid://dg51vm8otm1sv"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_nw810")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

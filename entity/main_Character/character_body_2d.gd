@@ -76,8 +76,8 @@ func _process(delta: float) -> void:
 	if get_tree().paused:
 		for ray in Array_ray:
 			if ray.is_colliding():
-				if Gold >= ray.price:
-					Gold -= ray.price
+				if Gold >= ray.bullet_strategy.price:
+					Gold -= ray.bullet_strategy.price
 					upgrades.append(ray.bullet_strategy)
 					print(Gold)
 					%DisplayGoldValue.text = "Gold: " + str(Gold)
@@ -86,6 +86,7 @@ func _process(delta: float) -> void:
 					
 
 func _on_health_health_depleted() -> void:
+	health.set_health(health.get_max_health())
 	set_physics_process(false)
 	print("death")
 	var player = get_tree().get_first_node_in_group("Player")
