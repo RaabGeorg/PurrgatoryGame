@@ -62,7 +62,7 @@ func shoot() -> void:
 
 func _on_health_health_depleted() -> void:
 	enemy_died.emit()
-	get_tree().call_group("Player", "dropped_gold", 40, 1)
+	get_tree().call_group("Player", "dropped_gold", 40, 200)
 	queue_free()
 
 func apply_knockback(from_position: Vector2) -> void:

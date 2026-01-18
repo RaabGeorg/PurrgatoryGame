@@ -100,6 +100,14 @@ offset_bottom = 98.0
 grow_horizontal = 2
 text = "Start Run"
 
+[node name="BuyCounter" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 780.0
+offset_top = 510.0
+offset_right = 820.0
+offset_bottom = 533.0
+
 [connection signal="mouse_exited" from="HBoxContainer/VBoxContainer/Permanent 1" to="." method="_on_permanent_1_mouse_exited"]
 [connection signal="mouse_exited" from="HBoxContainer/Max Health/Permanent 2" to="." method="_on_permanent_2_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Max Health/Permanent 2" to="." method="_on_permanent_2_pressed"]

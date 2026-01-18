@@ -1,6 +1,7 @@
 extends Control
 
 @onready var soul_display = %DisplaySoulsValue
+@onready var max_health_buy_counter = %BuyCounter
 
 var current_data : PlayerData
 
@@ -22,6 +23,15 @@ func load_and_display() -> void:
 
 func update_ui_text() -> void:
 	soul_display.text = "Souls: " + str(current_data.souls)
+	soul_display.text = "Souls: " + str(current_data.souls)
+	
+	var base_health = 5
+	var upgrades_bought = current_data.max_health - base_health
+	var max_upgrades = 5
+	
+	max_health_buy_counter.text = str(upgrades_bought) + " / " + str(max_upgrades)
+
+	
 
 
 func _on_permanent_2_pressed() -> void:
@@ -35,6 +45,8 @@ func _on_permanent_2_pressed() -> void:
 	if current_data.souls >= cost:
 		current_data.souls -= cost
 		current_data.max_health += 1
+		
+		max_health_buy_counter.text = str(current_data.max_health) + "/ 10"
 		
 		var path = SaveManager._get_path(SaveManager.current_slot)
 		ResourceSaver.save(current_data, path)

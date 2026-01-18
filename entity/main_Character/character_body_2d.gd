@@ -40,6 +40,7 @@ func _ready() -> void:
 	if get_tree().paused == false:
 		Gold = 0
 		upgrades = []
+		health.set_health(health.get_max_health())
 
 func _on_health_changed(_diff: int) -> void:
 	%DisplayHealthValue.text = "Health: " + str(health.get_health())
@@ -102,7 +103,7 @@ func dropped_gold(gold : int, souls : int) -> void:
 func get_save_data() -> PlayerData:
 	var data = PlayerData.new()
 	data.gold = Gold
-	#data.health = health.get_health()
+	data.health = health.get_health()
 	data.max_health = health.get_max_health()
 	data.souls = Souls
 	#data.player_position = global_position
@@ -115,7 +116,8 @@ func load_save_data(data: PlayerData):
 	Gold = data.gold
 	Souls = data.souls
 	
+	
 	if health:
 		health.set_max_health(data.max_health)
-		health.set_health(data.max_health)
+		health.set_health(data.health)
 	upgrades = data.saved_uprades
